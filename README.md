@@ -1,1 +1,2 @@
-WHY DON'T YOU FUCKING USE INDEX.HTML???
+Why site.
+Full of random shit :)
