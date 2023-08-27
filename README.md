@@ -1,2 +1,1 @@
-# uwq-official.github.io
-i hate github and microsoft
+WHY DON'T YOU FUCKING USE INDEX.HTML???
