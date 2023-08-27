@@ -1,1 +1,2 @@
 include: [".well-known"]
+wait_for_timeout: 3600
