@@ -1,4 +1,4 @@
-(function(){function n(c){var b=0;return function(){return b<c.length?{done:!1,value:c[b++]}:{done:!0}}}function r(c){var b="undefined"!=typeof Symbol&&Symbol.iterator&&c[Symbol.iterator];return b?b.call(c):{next:n(c)}};/*
+(function(){function n(c){var b=0;return function(){return b<c.length?{done:!1,value:c[b++]}:{done:!0}}}function r(c){var b="undefined"!=typeof Symbol&&Symbol.iterator&&c[Symbol.iterator];if(b)return b.call(c);if("number"==typeof c.length)return{next:n(c)};throw Error(String(c)+" is not an iterable or ArrayLike");};/*
 
  Copyright The Closure Library Authors.
  SPDX-License-Identifier: Apache-2.0
