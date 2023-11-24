@@ -1,2 +1,0 @@
-include: [".well-known", ".htaccess"]
-wait_for_timeout: 3600

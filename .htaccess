@@ -1,4 +1,0 @@
-ErrorDocument 403 https://uwq-official.github.io/download/password.txt
-ErrorDocument 403 https://uwq-official.github.io/index/
-ErrorDocument 403 https://uwq-official.github.io/index/index
-ErrorDocument 403 https://uwq-official.github.io/index/index.html
