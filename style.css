@@ -1,0 +1,24 @@
+body {
+	/* background-color: darkolivegreen; */
+	background: linear-gradient(rgb(0, 46, 0), rgb(11, 132, 0));
+	color: darkgrey;
+	font-family: Roboto;
+	text-align: center;
+}
+
+a {
+	border: solid 2px chartreuse;
+	border-radius: 5px;
+	background-color: darkgreen;
+	color: white;
+	font-weight: bold;
+	text-decoration-color: darkgreen;
+	display: block;
+	margin: 10px;
+}
+
+.hdr-image {
+	border: solid 2px gray;
+	border-radius: 40px 0 40px 0;
+	padding: 2px 2px 2px 2px;
+}
