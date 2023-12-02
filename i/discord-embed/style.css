@@ -8,14 +8,14 @@ body {
 	border-radius: 50px;
 }
 
-a {
+.i-link {
 	background-color: darkgray;
 	border: solid rgb(98, 98, 98) 2px;
 	border-radius: 5px;
 	text-align: center;
 }
 
-img {
+.i-img {
 	background-color: black;
 	border: solid rgb(98, 98, 98) 5px;
 	border-radius: 10px;

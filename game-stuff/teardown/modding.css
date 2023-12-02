@@ -1,0 +1,37 @@
+body {
+	font-family: Roboto;
+	text-align: center;
+	background-color: black;
+}
+
+.bdy {
+	background: linear-gradient(yellow, yellowgreen);
+	border-radius: 50px 50px 0 0;
+	color: darkslategray;
+}
+
+.page-desc {
+	border-radius: 50px;
+	background-color: yellowgreen;
+}
+
+.green {
+	color: green;
+	font-weight: bold;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.desc {
+	background-color: darkgreen;
+	color: darkgray;
+	border-radius: 50px;
+}
+
+.warning {
+	background-color: darkred;
+	color: darkgray;
+	border-radius: 10px;
+}

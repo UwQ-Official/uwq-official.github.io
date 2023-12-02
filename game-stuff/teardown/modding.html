@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>UwQ: Teardown Modding</title>
+		<link rel="stylesheet" href="modding.css">
+		<link rel="stylesheet" href="https://uwq-official.github.io/footer.css">
+	</head>
+	<body>
+		<div class="bdy">
+			<h1>Teardown Modding</h1>
+			<p class="page-desc">This page is something like an add-on to <a href="https://x4fx77x4f.github.io/dennispedia/">1ssnl's (discontinued) undocumented teardown features wiki</a>.</p>
+			<a href="https://teardowngame.com/modding/api.html">
+				<h2>Offical Modding API Docs</h2>
+			</a>
+			<br>
+			<h2>API</h2>
+			<h3>Undocumented Functions</h3>
+			<div class="undoc-fun">
+				<div class="isachcomp">
+					<p class="green">IsAchievementCompleted(id)</p>
+					<p class="bold">id - String, achievement ID</p>
+					<p class="desc">Checks if you already have a specified achievement.</p>
+					<p class="warning">Only works if called by data\script\achievements.lua</p>
+				</div>
+				<br>
+				<div class="compach">
+					<p class="green">CompleteAchievement(id)</p>
+					<p class="bold">id - String, achievement ID</p>
+					<p class="desc">Complete specified achievement.</p>
+					<p class="warning">Only works if called by data\script\achievements.lua</p>
+				</div>
+				<br>
+				<div class="crmat">
+					<p class="green">CreateMaterial(material, r1, g1, b1, r2_opt, g2_opt, b2_opt)</p>
+					<p class="bold">material - String, material (e.g. dirt, masonry, etc.)<br>r1 g1 b1 - RGB value, material color<br>r2 g2 b2 - RGB value (optional), color used to achieve material (e.g. RBG '20 20 20' produces tarmac)</p>
+					<p class="desc">Used by <a href="ground.lua">ground.lua</a> heightmap script to turn the provided image into in-game materials.</p>
+				</div>
+				<br>
+			</div>
+			<h3>Tags:</h3>
+			<div class="tags">
+				<p class="green">fxturnoff</p>
+				<p class="bold">engine, shape tag</p>
+				<p class="desc">Turns off effects (emissivines) of tagged shape.</p>
+			</div>
+		</div>
+		<div class="footer">
+			<p>©️UwQ_. No rights reserved (legally).</p>
+			<a href="https://uwq-official.github.io">
+				<img src="https://uwq-official.github.io/i/home.png" width="50px" height="20px">
+			</a>
+		</div>
+	</body>
+</html>

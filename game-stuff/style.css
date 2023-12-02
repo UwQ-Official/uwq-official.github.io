@@ -1,0 +1,11 @@
+body {
+	font-family: Roboto;
+	text-align: center;
+	background-color: black;
+}
+
+.bdy {
+	color: white;
+	background: linear-gradient(rgb(92, 77, 10), rgb(126, 105, 11));
+	border-radius: 50px 50px 0 0;
+}
