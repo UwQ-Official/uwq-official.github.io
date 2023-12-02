@@ -42,14 +42,6 @@ body {
 	padding: 2px 2px 2px 2px;
 }
 
-.footer {
-	background-color: black;
-	/* margin: 7px; */
-	border-radius: 20px 20px 0 0;
-	display: inline-block;
-	width: 100%;
-}
-
 h1 {
 	font-weight: 800;
 }

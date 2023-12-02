@@ -1,0 +1,10 @@
+.footer {
+	font-family: Roboto;
+	font-weight: 100;
+	color: darkgray;
+	background-color: black;
+	/* margin: 7px; */
+	border-radius: 20px 20px 0 0;
+	display: inline-block;
+	width: 100%;
+}
