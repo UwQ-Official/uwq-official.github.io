@@ -34,13 +34,15 @@
 				<div>
 					<p class="green">CompleteAchievement(id)</p>
 					<p class="bold">id - String, achievement ID</p>
+					<pre>if not IsAchievementCompleted("ACH_WATCH_ABOUT") then&NewLine;&Tab;CompleteAchievement("ACH_WATCH_ABOUT")&NewLine;end</pre>
 					<p class="desc">Complete specified achievement.</p>
 					<p class="warning">Only works if called by data\script\achievements.lua</p>
 				</div>
 				<hr>
 				<div>
 					<p class="green">CreateMaterial(material, r1, g1, b1, r2_opt, g2_opt, b2_opt)</p>
-					<p class="bold">material - String, material (e.g. dirt, masonry, etc.)<br>r1 g1 b1 - RGB value, material color<br>r2 g2 b2 - RGB value (optional), color used to achieve material (e.g. RBG '20 20 20' produces tarmac)</p>
+					<p class="bold">material - String, material (e.g. dirt, masonry, etc.)<br>r1 g1 b1 - RGB value, material color<br>r2 g2 b2 - RGB value (optional), color used to achieve material (e.g. RBG '10 10 10' produces tarmac)</p>
+					<pre>function init()&NewLine;&Tab;matTarmacTrack = CreateMaterial("masonry", 0.2, 0.2, 0.2, 1, 0, 0.3)&NewLine;...</pre>
 					<p class="desc">Used by <a href="ground.lua">ground.lua</a> heightmap script to turn the provided image into in-game materials.</p>
 				</div>
 				<br>
