@@ -6,7 +6,7 @@ pre {
 	color: gray;
 	border: solid 3px gray;
 	border-radius: 10px;
-	display: flex;
+	display: inline-block;
 	font-size: small;
 	padding: 10px;
 }
