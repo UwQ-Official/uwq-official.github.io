@@ -9,6 +9,7 @@ pre {
 	/* display: inline-block; */
 	font-size: small;
 	padding: 10px;
+	text-align: right;
 }
 
 hr {
