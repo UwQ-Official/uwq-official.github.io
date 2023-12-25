@@ -40,7 +40,7 @@
 				</div>
 				<hr>
 				<div>
-					<p class="green">CreateMaterial(material, r1, g1, b1, r2_opt, g2_opt, b2_opt)</p>
+					<p class="green">CreateMaterial(material, r1, g1, b1, opt_r2, opt_g2, opt_b2)</p>
 					<p class="bold">material - String, material (e.g. dirt, masonry, etc.)<br>r1 g1 b1 - RGB value, material color<br>r2 g2 b2 - RGB value (optional), color used to achieve material (e.g. RBG '10 10 10' produces tarmac)</p>
 					<pre>function init()&NewLine;&Tab;matTarmacTrack = CreateMaterial("masonry", 0.2, 0.2, 0.2, 1, 0, 0.3)&NewLine;...</pre>
 					<p class="desc">Used by <a href="ground.lua">ground.lua</a> heightmap script to turn the provided image into in-game materials.</p>
