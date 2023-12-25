@@ -23,37 +23,37 @@
 			<h2>API</h2>
 			<h3>Undocumented Functions</h3>
 			<div class="undoc-fun">
-				<div>
+				<section id="IsAchievementCompleted">
 					<p class="green">IsAchievementCompleted(id)</p>
 					<p class="bold">id - String, achievement ID</p>
 					<pre>if not IsAchievementCompleted("ACH_WATCH_ABOUT") then&NewLine;&Tab;CompleteAchievement("ACH_WATCH_ABOUT")&NewLine;end</pre>
 					<p class="desc">Checks if you already have a specified achievement.</p>
 					<p class="warning">Only works if called by data\script\achievements.lua</p>
-				</div>
+				</section>
 				<hr>
-				<div>
+				<section id="CompleteAchievement">
 					<p class="green">CompleteAchievement(id)</p>
 					<p class="bold">id - String, achievement ID</p>
 					<pre>if not IsAchievementCompleted("ACH_WATCH_ABOUT") then&NewLine;&Tab;CompleteAchievement("ACH_WATCH_ABOUT")&NewLine;end</pre>
 					<p class="desc">Complete specified achievement.</p>
 					<p class="warning">Only works if called by data\script\achievements.lua</p>
-				</div>
+				</section>
 				<hr>
-				<div>
+				<section id="CreateMaterial">
 					<p class="green">CreateMaterial(material, r1, g1, b1, opt_r2, opt_g2, opt_b2)</p>
 					<p class="bold">material - String, material (e.g. dirt, masonry, etc.)<br>r1 g1 b1 - RGB value, material color<br>r2 g2 b2 - RGB value (optional), color used to achieve material (e.g. RBG '10 10 10' produces tarmac)</p>
 					<pre>function init()&NewLine;&Tab;matTarmacTrack = CreateMaterial("masonry", 0.2, 0.2, 0.2, 1, 0, 0.3)&NewLine;...</pre>
 					<p class="desc">Used by <a href="ground.lua">ground.lua</a> heightmap script to turn the provided image into in-game materials.</p>
-				</div>
+				</section>
 				<br>
 			</div>
 			<h3>Tags:</h3>
 			<div class="tags">
-				<div>
+				<section id="fxturnoff">
 					<p class="green">fxturnoff</p>
 					<p class="bold">engine, shape tag</p>
 					<p class="desc">Turns off effects (emissivines) of tagged shape.</p>
-				</div>
+				</section>
 			</div>
 		</div>
 		<div class="footer">
