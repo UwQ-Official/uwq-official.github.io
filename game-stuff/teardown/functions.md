@@ -10,41 +10,29 @@
 
 [DisableAllLights](#arguments-4)
 
-[GetPlayerAimInfo](#arguments-5)
+[GetPlayerGrabPoint](#arguments-5)
 
-[GetPlayerCrouch](#arguments-6)
+[GetPlayerPitch](#arguments-6)
 
-[GetPlayerGrabPoint](#arguments-7)
+[GetPlayerToolRecoil](#arguments-7)
 
-[GetPlayerPitch](#arguments-8)
+[GetVehicleLocationWorldTransform](#arguments-8)
 
-[GetPlayerToolRecoil](#arguments-9)
+[IsAchievementCompleted](#arguments-9)
 
-[GetToolLocationLocalTransform](#arguments-10)
+[IndicateAchievementProgress](#arguments-10)
 
-[GetToolLocationWorldTransform](#arguments-11)
+[IsPlayerJumping](#arguments-11)
 
-[GetVehicleDrive](#arguments-12)
+[GetScriptId](#arguments-13)
 
-[GetVehicleLocationWorldTransform](#arguments-13)
+[GetShapeStrength](#arguments-14)
 
-[GetVehicleSteering](#arguments-14)
+[IsRunningOn...](#arguments-15)
 
-[IsAchievementCompleted](#arguments-15)
+[SaveShape](#arguments-16)
 
-[IndicateAchievementProgress](#arguments-16)
-
-[IsPlayerJumping](#arguments-17)
-
-[GetScriptId](#arguments-18)
-
-[GetShapeStrength](#arguments-19)
-
-[IsRunningOn...](#arguments-20)
-
-[SaveShape](#arguments-21)
-
-[SetClipboardText](#arguments-22)
+[SetClipboardText](#arguments-17)
 
 # AddSnow
 
@@ -163,27 +151,6 @@ Disables all enabled lights.
 
 ---
 
-# GetPlayerAimInfo
-
-GetPlayerAimInfo()
-
-> ## Arguments
->
-> none?
-
-> ## Return value
->
-> boolean (bool) - True (I don't know what that is, but it's true)
-
-Gets player aim info (?).
-
-    function tick(dt)
-        info = GetPlayerAimInfo()
-        DebugPrint(info)
-    end
-
----
-
 # GetPlayerCrouch
 
 GetPlayerCrouch()
@@ -269,68 +236,6 @@ Gets the current tool's recoil amount.
 
 ---
 
-# GetToolLocationLocalTransform
-
-GetToolLocationLocalTransform()
-
-> ## Arguments
->
-> none
-
-> ## Return value
->
-> local (TTransform) - Tool local transform (none?)
-
-Gets tool location local transform.
-
-    function tick(dt)
-        DebugWatch("tool local transform", GetToolLocationLocalTransform())
-    end
-
----
-
-# GetToolLocationWorldTransform
-
-GetToolLocationWorldTransform()
-
-> ## Arguments
->
-> none
-
-> ## Return value
->
-> world (TTransform) - Tool world transform (rot={0,0,0,1}, pos={0,0,0})
-
-Gets tool location world transform.
-
-    function tick(dt)
-        DebugWatch("tool world transform", GetToolLocationWorldTransform())
-    end
-
----
-
-# GetVehicleDrive
-
-GetVehicleDrive(vehicle)
-
-> ## Arguments
->
-> vehicle (handle) - Vehicle handle
-
-> ## Return value
->
-> drive (number) - Drive (up to 1 when giving gas, down to -1 when reversing)
-
-Gets vehicle drive (given gas amount).
-
-    function tick(dt)
-        vehicle = FindVehicle("dumptruck", true)
-        drive = GetVehicleDrive(vehicle)
-        DebugPrint(drive)
-    end
-
----
-
 # GetVehicleLocationWorldTransform
 
 GetVehicleLocationWorldTransform(vehicle)
@@ -348,28 +253,6 @@ Gets vehicle world space transform.
     function tick(dt)
         vehicle = FindVehicle("dumptruck", true)
         DebugWatch("vehicle world transform", GetVehicleLocationWorldTransform(vehicle))
-    end
-
----
-
-# GetVehicleSteering
-
-GetVehicleSteering(vehicle)
-
-> ## Arguments
->
-> vehicle (handle) - Vehicle handle
-
-> ## Return value
->
-> steer (number) - Steer (up to 0.5 when steering left, down to -0.5 when steering right)
-
-Gets vehicle steering.
-
-    function tick(dt)
-        vehicle = FindVehicle("dumptruck", true)
-        steer = GetVehicleSteer(vehicle)
-        DebugPrint(drive)
     end
 
 ---
