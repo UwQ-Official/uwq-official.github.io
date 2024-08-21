@@ -1,3 +1,7 @@
+# Undocumented Functions
+
+Lorem ipsum :)
+
 # AddSnow
 
 AddSnow(shape, point, amount)
