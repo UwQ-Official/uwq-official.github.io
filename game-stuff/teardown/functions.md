@@ -1,6 +1,52 @@
 # Undocumented Functions
 
-Lorem ipsum :)
+[AddSnow](#arguments)
+
+[Command](#arguments-1)
+
+[CompleteAchievement](#arguments-2)
+
+[GetClipboardText](#arguments-3)
+
+[DisableAllLights](#arguments-4)
+
+[GetPlayerAimInfo](#arguments-5)
+
+[GetPlayerCrouch](#arguments-6)
+
+[GetPlayerGrabPoint](#arguments-7)
+
+[GetPlayerPitch](#arguments-8)
+
+[GetPlayerToolRecoil](#arguments-9)
+
+[GetPlayerWalkingSpeed](#arguments-10)
+
+[GetToolLocationLocalTransform](#arguments-11)
+
+[GetToolLocationWorldTransform](#arguments-12)
+
+[GetVehicleDrive](#arguments-13)
+
+[GetVehicleLocationWorldTransform](#arguments-14)
+
+[GetVehicleSteering](#arguments-15)
+
+[IsAchievementCompleted](#arguments-16)
+
+[IndicateAchievementProgress](#arguments-17)
+
+[IsPlayerJumping](#arguments-18)
+
+[GetScriptId](#arguments-19)
+
+[GetShapeStrength](#arguments-20)
+
+[IsRunningOn...](#arguments-21)
+
+[SaveShape](#arguments-22)
+
+[SetClipboardText](#arguments-23)
 
 # AddSnow
 
