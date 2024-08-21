@@ -20,33 +20,31 @@
 
 [GetPlayerToolRecoil](#arguments-9)
 
-[GetPlayerWalkingSpeed](#arguments-10)
+[GetToolLocationLocalTransform](#arguments-10)
 
-[GetToolLocationLocalTransform](#arguments-11)
+[GetToolLocationWorldTransform](#arguments-11)
 
-[GetToolLocationWorldTransform](#arguments-12)
+[GetVehicleDrive](#arguments-12)
 
-[GetVehicleDrive](#arguments-13)
+[GetVehicleLocationWorldTransform](#arguments-13)
 
-[GetVehicleLocationWorldTransform](#arguments-14)
+[GetVehicleSteering](#arguments-14)
 
-[GetVehicleSteering](#arguments-15)
+[IsAchievementCompleted](#arguments-15)
 
-[IsAchievementCompleted](#arguments-16)
+[IndicateAchievementProgress](#arguments-16)
 
-[IndicateAchievementProgress](#arguments-17)
+[IsPlayerJumping](#arguments-17)
 
-[IsPlayerJumping](#arguments-18)
+[GetScriptId](#arguments-18)
 
-[GetScriptId](#arguments-19)
+[GetShapeStrength](#arguments-19)
 
-[GetShapeStrength](#arguments-20)
+[IsRunningOn...](#arguments-20)
 
-[IsRunningOn...](#arguments-21)
+[SaveShape](#arguments-21)
 
-[SaveShape](#arguments-22)
-
-[SetClipboardText](#arguments-23)
+[SetClipboardText](#arguments-22)
 
 # AddSnow
 
@@ -267,27 +265,6 @@ Gets the current tool's recoil amount.
     function tick(dt)
         recoil = GetPlayerToolRecoil()
         DebugPrint(recoil)
-    end
-
----
-
-# GetPlayerWalkingSpeed
-
-GetPlayerWalkingSpeed()
-
-> ## Arguments
->
-> none
-
-> ## Return value
->
-> walking speed (number) - Player walking speed, 7 if not altered by another scirpt
-
-Gets player's walking speed (unknown measurement, probably 7km/h)
-
-    function tick(dt)
-        speed  = GetPlayerWalkingSpeed()
-        DebugPrint(speed)
     end
 
 ---
