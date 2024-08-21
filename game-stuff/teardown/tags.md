@@ -308,3 +308,5 @@
 ---
 
 Also check out [undocumented functions](https://uwq-official.github.io/game-stuff/teardown/functions) :)
+
+## And Special thanks to 1ssnl, for all the work they put into researching the game :)
