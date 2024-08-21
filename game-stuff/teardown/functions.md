@@ -462,3 +462,5 @@ Copies given text to device clipboard (ONLY RUN ONCE!).
     end
 
 ---
+
+Also check out [tags list](https://uwq-official.github.io/game-stuff/teardown/tags) :)
