@@ -1,0 +1,107 @@
+?? - No idea (doesn't work)
+*? - Maybe documented elsewhere, but not sure
+** - Note
+` - Done
+
+ActivityAvailabilityChange
+ActivityEnd
+ActivityResume
+ActivityStart
+ActivityTerminate
+`AddSnow
+`Command** - https://x4fx77x4f.github.io/dennispedia/teardown/g/Command.html
+`CompleteAchievement
+CreatePathPlanner
+DebugTransform??
+DeletePathPlanner
+DeleteShape??
+`DisableAllLights
+FxEmitSmokeCPP
+GetActionByButton
+GetBodyHit??
+GetBodyHitsCount??
+GetButtonsByAction
+`GetClipboardText
+GetEvent
+GetEventCount
+GetFlashlight** - Doesn't do anything
+GetKeyByAction
+GetLastSound
+GetLayoutActions
+GetPathLength
+GetPathPoint
+GetPathState
+`GetPlayerAimInfo
+`GetPlayerCrouch
+GetPlayerEyeTransform*?
+`GetPlayerGrabPoint
+`GetPlayerPitch
+GetPlayerRigHasTag*?
+GetPlayerRigLocationWorldTransform*?
+GetPlayerRigTagValue*?
+GetPlayerRigTransform*?
+`GetPlayerToolRecoil
+`GetPlayerWalkingSpeed
+`GetScriptId** - Why? Scripts are basically useless at runtime, ... unless?
+`GetShapeStrength** - You can get the strength through GetProperty()
+`GetToolLocationLocalTransform
+`GetToolLocationWorldTransform
+`GetVehicleDrive
+`GetVehicleLocationWorldTransform
+`GetVehicleSteering
+HasInputController
+`IndicateAchievementProgress
+`IsAchievementCompleted
+IsBodyHitted??
+`IsPlayerJumping
+`IsRunningOnApple - No I, O:bool - true (is) false (isn't)
+`IsRunningOnEgs - ^^^ (EGS = Epic Games Store)
+`IsRunningOnIOS - ^^^
+`IsRunningOnMac - ^^^
+`IsRunningOnPC - ^^^
+`^	 OnPlaystation
+`^		     5
+`^	 OnSteam
+`^	 	Deck
+`^	 OnSwitch
+`^	 OnXbox
+`^	       S
+`^	       X
+PathPlannerQuery
+QueryInclude
+QueryLayerFilter
+     Path
+     RejectAnimator
+RadiolinkCheckConnectionCPP
+	 DrawLinesCPP
+RobotAimUpdateCPP
+     FootStepCPP
+     GetBodyParametersCPP
+     GetTransformAndAxesCPP
+     HoverGetUpCPP
+     HoverUpright
+     ProcessSamplesCPP
+     RejectAllBodiesCPP
+     RemoveTaggedJointsCPP
+     SensorGetBlockedCPP
+     SetBodyCollisionFilterCPP
+     SetFootConstraintsCPP
+SaveCameraOverrideTransform
+`SaveShape - I: shape, file_name, No O
+`SetClipboardText
+SetFlashlight** - ???
+SetPlayerHidden** - ???
+SetPlayerRigLocationLocalTransform*?
+	 RigTags*?
+	 RigTransform*?
+SetPresence??
+SetRopeSlack
+SetToolTransformOverride
+SetVehicleEngineHealth
+SpawnLayer** - What is a layer?
+TSharedUserdata
+TornadoBodiesSuctionCPP
+TornadoSpawnParticlesCPP
+TriggerEvent
+WatchBodyHit??
+WinddustSpawnParticlesCPP
