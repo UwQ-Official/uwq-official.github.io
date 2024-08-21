@@ -96,9 +96,8 @@ SetPlayerRigLocationLocalTransform*?
 	 RigTransform*?
 SetPresence??
 SetRopeSlack
-SetToolTransformOverride
-SetVehicleEngineHealth
-SpawnLayer** - What is a layer?
+SetVehicleEngineHealth??
+SpawnLayer** - What is a layer? ???
 TSharedUserdata
 TornadoBodiesSuctionCPP
 TornadoSpawnParticlesCPP
