@@ -88,7 +88,7 @@
 >
 > Joint can be controlled by vehicle_raise/lower on **crane** vehicle.
 
-> # forklift
+> ## forklift
 >
 > vehicle
 >
