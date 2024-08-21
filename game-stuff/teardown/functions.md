@@ -511,7 +511,7 @@ SaveShape(shape, filename)
 >
 > shape (handle) - Shape
 > 
-> filename (string) - File name, mustn't contain \/:*?<>| (best is to keep to just text and numbers without spaces)
+> filename (string) - File name, mustn't contain \\/:*?<>\| (best is to keep to just text and numbers without spaces)
 
 > ## Return value
 >
