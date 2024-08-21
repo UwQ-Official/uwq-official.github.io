@@ -162,11 +162,13 @@
 >
 > Tagged shape doesn't spawn with a layer of snow on it (when *snow* enviroment property is enabled).
 
-> ## passive
+> ## passive (broken?)
 >
 > vehicle
 >
 > Makes tagged vehicle uncontrollable by player (disables controls such as going forward/revesing or bed and hook controls).
+>
+> **Seems to only disable any vehicle sounds other that *idle* and limits driving speed of 3km/h and 2km/h in reverse**.
 
 > ## player
 >
@@ -174,5 +176,62 @@
 >
 > Defines where the 1st person camera of parent vehicle is (rotation also aplies?).
 
+> ## plank
+>
+> joint, shape
 
+> ## propeller
+>
+> location
+>
+> Defines position of **boat** propeller.
 
+> ## reversebeep
+>
+> vehicle
+>
+> Makes beeping noise when driving in reverse.
+
+> ## skylift
+>
+> vehicle
+>
+> Same as **crane** with no hook.
+
+> ## smoke
+>
+> shape
+>
+> Tagged shape produces smoke (used for pipebombs).
+
+> ## turbo
+>
+> shape
+>
+> Only works when tagged shape is child of vehicle. Acts like a vehicle booster.
+
+> ## turn
+>
+> joint
+>
+> Forces joint to be controlled by right/left on **crane**s.
+
+> ## unbreakable
+>
+> body, shape, rope
+>
+> Makes tagged entity unbreakable, but it can still be spray painted and tire-marked (exept ropes).
+
+> ## vital
+>
+> location
+>
+> Defines where vehicle engine is. Used to spawn smoke particles when vehicle is too damaged/broken.
+
+> ## wire
+>
+> joint (rope location)
+
+---
+
+Also check out [undocumented functions](https://uwq-official.github.io/game-stuff/teardown/functions) :)
