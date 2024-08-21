@@ -5,7 +5,9 @@ AddSnow(shape, point, amount)
 > ## Arguments
 >
 > shape (handle) - Shape handle
+> 
 > point (vec) - Vector Point on shape
+> 
 > amount (number) - Amount of snow
 
 > ## Return value
@@ -29,6 +31,7 @@ Command(cmd, param)
 > ## Arguments
 >
 > cmd (string) - Command (check out [1ssnl's Dennispedia](https://x4fx77x4f.github.io/dennispedia/teardown/g/Command.html) for a list of commands (arguments))
+> 
 > param (depends on previous argument) - Parameter for given command (if any)
 
 > ## Return Value
@@ -48,6 +51,7 @@ Runs engine commands (e.g. taking a screenshot, opening a url/folder, etc.).
 # CompleteAchievement
 
 **Only works if called by *data/script/achievements.lua***
+
 CompleteAchievement(ach_id)
 
 > ## Arguments
@@ -71,6 +75,7 @@ Completes steam/ps/xbox achievement.
 # GetClipboardText
 
 **Only works if called by a *privileged script***
+
 GetClipboardText()
 
 > ## Arguments
@@ -196,6 +201,7 @@ Gets player pitch.
 # GetPlayerToolRecoil
 
 **Only works if called by a *privileged script***
+
 GetPlayerToolRecoil()
 
 > ## Arguments
@@ -204,7 +210,7 @@ GetPlayerToolRecoil()
 
 > ## Return value
 >
-> current tool recoil amount (number) - 0 if tool doesn't have recoil or isn't used
+> recoil (number) - 0 if tool doesn't have recoil or isn't used
 
 Gets the current tool's recoil amount.
 
@@ -344,6 +350,7 @@ Gets vehicle steering.
 # IsAchievementCompleted
 
 **Only works if called by *data/script/achievements.lua***
+
 IsAchievementCompleted(id)
 
 > ## Arguments
@@ -367,12 +374,15 @@ Checks if given achievement is completed.
 # IndicateAchievementProgress
 
 **Only works if called by *data/script/achievements.lua***
+
 IndicateAchievementProgress(id, cur, max)
 
 > ## Arguments
 >
 > id (string) - Achievement id
+> 
 > cur (number) - Current progress
+> 
 > max (number) - Maximum progress
 
 > ## Return value
@@ -494,11 +504,13 @@ Checks if game is being ran on specified platform.
 # SaveShape
 
 **Only works if called by a *privileged script***
+
 SaveShape(shape, filename)
 
 > ## Arguments
 >
 > shape (handle) - Shape
+> 
 > filename (string) - File name, mustn't contain \/:*?<>| (best is to keep to just text and numbers without spaces)
 
 > ## Return value
@@ -522,6 +534,7 @@ Saves shape (and its xml) to *Documents\Teardown\creativemode* and makes it spaw
 # SetClipboardText
 
 **Only works if called by a *privileged script***
+
 SetClipboardText(text)
 
 > ## Arguments
