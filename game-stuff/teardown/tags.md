@@ -229,7 +229,7 @@
 >
 > Shape is disreguarded by pathfinding.
 
-> ## snow
+> ## nosnow
 >
 > shape
 >
