@@ -74,18 +74,18 @@ QueryLayerFilter
      RejectAnimator
 RadiolinkCheckConnectionCPP
 	 DrawLinesCPP
-RobotAimUpdateCPP
+RobotAimUpdateCPP#
      FootStepCPP
      GetBodyParametersCPP
-     GetTransformAndAxesCPP
-     HoverGetUpCPP
+     GetTransformAndAxesCPP#
+     HoverGetUpCPP#
      HoverUpright
      ProcessSamplesCPP
-     RejectAllBodiesCPP
-     RemoveTaggedJointsCPP
-     SensorGetBlockedCPP
-     SetBodyCollisionFilterCPP
-     SetFootConstraintsCPP
+     RejectAllBodiesCPP#
+     RemoveTaggedJointsCPP#
+     SensorGetBlockedCPP#
+     SetBodyCollisionFilterCPP#
+     SetFootConstraintsCPP#
 SaveCameraOverrideTransform
 `SaveShape - I: shape, file_name, No O
 `SetClipboardText
@@ -101,6 +101,6 @@ SpawnLayer** - What is a layer? ???
 TSharedUserdata
 TornadoBodiesSuctionCPP
 TornadoSpawnParticlesCPP
-TriggerEvent
+TriggerEvent - Example in data/script/spawn.lua I: 1. event type; 2. event data?
 WatchBodyHit??
 WinddustSpawnParticlesCPP
