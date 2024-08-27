@@ -257,7 +257,7 @@
 >
 > joint, shape
 >
-> Used by RobotRemoveTaggedJointsCPP() to remove planks attatched to robots.
+> Used by [RobotRemoveTaggedJointsCPP()](https://uwq-official.github.io/game-stuff/teardown/functions#robotremovetaggedjointscpp) to remove planks attatched to robots.
 
 > ## propeller
 >
@@ -311,7 +311,7 @@
 >
 > joint (rope location)
 >
-> Used by RobotRemoveTaggedJointsCPP() to remove wires attatched to robots.
+> Used by [RobotRemoveTaggedJointsCPP()](https://uwq-official.github.io/game-stuff/teardown/functions#robotremovetaggedjointscpp) to remove wires attatched to robots.
 
 ---
 
