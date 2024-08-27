@@ -10,27 +10,27 @@
 
 [GetEvent](#geteventevent-id)
 
-[DisableAllLights](#disablealllights)
+[DisableAllLights](#disablealllights-1)
 
-[GetPlayerGrabPoint](#getplayergrabpoint)
+[GetPlayerGrabPoint](#getplayergrabpoint-1)
 
-[GetPlayerPitch](#getplayerpitch)
+[GetPlayerPitch](#getplayerpitch-1)
 
-[GetPlayerToolRecoil](#getplayertoolrecoil)
+[GetPlayerToolRecoil](#getplayertoolrecoil-1)
 
-[GetVehicleLocationWorldTransform](#getvehiclelocationworldtransformvehicle)
+[GetVehicleLocationWorldTransform](#getvehiclelocationworldtransformvehicle-1)
 
 [IsAchievementCompleted](#isachievementcompletedid)
 
 [IndicateAchievementProgress](#indicateachievementprogressid-cur-max)
 
-[IsPlayerJumping](#isplayerjumping)
+[IsPlayerJumping](#isplayerjumping-1)
 
-[GetScriptId](#getsriptid)
+[GetScriptId](#getsriptid-1)
 
 [GetShapeStrength](#getshapestrengthshape)
 
-[IsRunningOn...](#isrunningon-list-of-available-platforms)
+[IsRunningOn...](#isrunningon-1)
 
 [SaveShape](#saveshapeshape-filename)
 
