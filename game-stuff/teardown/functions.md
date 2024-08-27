@@ -38,7 +38,7 @@
 
 # AddSnow
 
-AddSnow(shape, point, amount)
+> ### AddSnow(shape, point, amount)
 
 > ## Arguments
 >
