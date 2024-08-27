@@ -8,21 +8,23 @@
 
 [GetClipboardText](#arguments-3)
 
-[DisableAllLights](#arguments-4)
+[GetEvent](#arguments-4)
 
-[GetPlayerGrabPoint](#arguments-5)
+[DisableAllLights](#arguments-5)
 
-[GetPlayerPitch](#arguments-6)
+[GetPlayerGrabPoint](#arguments-6)
 
-[GetPlayerToolRecoil](#arguments-7)
+[GetPlayerPitch](#arguments-7)
 
-[GetVehicleLocationWorldTransform](#arguments-8)
+[GetPlayerToolRecoil](#arguments-8)
 
-[IsAchievementCompleted](#arguments-9)
+[GetVehicleLocationWorldTransform](#arguments-9)
 
-[IndicateAchievementProgress](#arguments-10)
+[IsAchievementCompleted](#arguments-10)
 
-[IsPlayerJumping](#arguments-11)
+[IndicateAchievementProgress](#arguments-11)
+
+[IsPlayerJumping](#arguments-12)
 
 [GetScriptId](#arguments-13)
 
@@ -127,6 +129,29 @@ Gets device clipboard latest entry.
     fucntion tick(dt)
         clipboard = GetClipboardText()
         DebugPrint(clipboard)
+    end
+
+---
+
+# GetEvent
+
+GetEvent()
+
+> ## Arguments
+>
+> event (string) - event name
+> id (number) - event id (number in order of when events happened)
+
+> ## Return Value
+>
+> Usually 4 outputs, but depends on *event*
+
+    function tick(dt)
+        count = GetEventCount("playerhurt")
+
+        for i=1, #count do
+            player, before, after, attacker = GetEvent("playerhurt", i)
+        end
     end
 
 ---
