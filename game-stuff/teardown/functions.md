@@ -34,6 +34,8 @@
 
 [IsRunningOn...](#isrunningon)
 
+[RobotRemoveTaggedJointsCPP](#robotremovetaggedjointscpp)
+
 [SaveShape](#saveshape)
 
 [SetClipboardText](#setclipboardtext)
@@ -469,6 +471,31 @@ Checks if game is being ran on specified platform.
 
 ---
 
+# RobotRemoveTaggedJointsCPP()
+
+> ### RobotRemoveTaggedJointsCPP(time, tag1, tag2)
+
+> ## Arguments
+>
+> time (number) - time until removal
+>
+> tag1 (string) - tag №1 (usually "plank")
+>
+> tag2 (string) - tag №2 (usually "wire")
+
+> ## Return Value
+>
+> none
+
+Detaches joints connected to robot that are tagged with either **tag1** or **tag2**
+
+    -- Make a proper code example :/
+    function tick(dt)
+        RobotRemoveTaggedJointsCPP(dt, "plank", "wire")
+    end
+
+---
+
 # SaveShape
 
 **Only works if called by a *privileged script***
@@ -537,7 +564,7 @@ Copies given text to device clipboard (ONLY RUN ONCE!).
 
 Triggers an event with given parameter
 
-    -- Please, give a better exaple smh, don't copy data/script/characters.lua code
+    -- Please, give a better example smh, don't copy data/script/characters.lua code
     local function UnlockCharacter(character)
         SetBool("savegame.characters." .. character, true)
         SetBool("savegame.freshcharacters." .. character, true)
