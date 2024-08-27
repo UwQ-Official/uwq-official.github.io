@@ -57,6 +57,8 @@
 
 [player](#player)
 
+[plank](#plank)
+
 [propeller](#propeller)
 
 [reversebeep](#reversebeep)
@@ -72,6 +74,8 @@
 [unbreakable](#unbreakble)
 
 [vital](#vital)
+
+[wire](#wire)
 
 ---
 
@@ -252,6 +256,8 @@
 > ## plank
 >
 > joint, shape
+>
+> Used by RobotRemoveTaggedJointsCPP() to remove planks attatched to robots.
 
 > ## propeller
 >
@@ -304,6 +310,8 @@
 > ## wire
 >
 > joint (rope location)
+>
+> Used by RobotRemoveTaggedJointsCPP() to remove wires attatched to robots.
 
 ---
 
