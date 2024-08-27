@@ -1,40 +1,40 @@
 # Undocumented Functions
 
-[AddSnow](#arguments)
+[AddSnow](#addsnowshape-point-amount)
 
-[Command](#arguments-1)
+[Command](#commandcmd-param)
 
-[CompleteAchievement](#arguments-2)
+[CompleteAchievement](#completeachievementach_id)
 
-[GetClipboardText](#arguments-3)
+[GetClipboardText](#getclipboardtext)
 
-[GetEvent](#arguments-4)
+[GetEvent](#geteventevent-id)
 
-[DisableAllLights](#arguments-5)
+[DisableAllLights](#disablealllights)
 
-[GetPlayerGrabPoint](#arguments-6)
+[GetPlayerGrabPoint](#getplayergrabpoint)
 
-[GetPlayerPitch](#arguments-7)
+[GetPlayerPitch](#getplayerpitch)
 
-[GetPlayerToolRecoil](#arguments-8)
+[GetPlayerToolRecoil](#getplayertoolrecoil)
 
-[GetVehicleLocationWorldTransform](#arguments-9)
+[GetVehicleLocationWorldTransform](#getvehiclelocationworldtransformvehicle)
 
-[IsAchievementCompleted](#arguments-10)
+[IsAchievementCompleted](#isachievementcompletedid)
 
-[IndicateAchievementProgress](#arguments-11)
+[IndicateAchievementProgress](#indicateachievementprogressid-cur-max)
 
-[IsPlayerJumping](#arguments-12)
+[IsPlayerJumping](#isplayerjumping)
 
-[GetScriptId](#arguments-13)
+[GetScriptId](#getsriptid)
 
-[GetShapeStrength](#arguments-14)
+[GetShapeStrength](#getshapestrengthshape)
 
-[IsRunningOn...](#arguments-15)
+[IsRunningOn...](#isrunningon-list-of-available-platforms)
 
-[SaveShape](#arguments-16)
+[SaveShape](#saveshapeshape-filename)
 
-[SetClipboardText](#arguments-17)
+[SetClipboardText](#setclipboardtexttext)
 
 # AddSnow
 
@@ -64,7 +64,7 @@ Adds a snowball with defined size to shape.
 
 # Command
 
-Command(cmd, param)
+> ### Command(cmd, param)
 
 > ## Arguments
 >
@@ -90,7 +90,7 @@ Runs engine commands (e.g. taking a screenshot, opening a url/folder, etc.).
 
 **Only works if called by *data/script/achievements.lua***
 
-CompleteAchievement(ach_id)
+> ### CompleteAchievement(ach_id)
 
 > ## Arguments
 >
@@ -114,7 +114,7 @@ Completes steam/ps/xbox achievement.
 
 **Only works if called by a *privileged script***
 
-GetClipboardText()
+> ### GetClipboardText()
 
 > ## Arguments
 >
@@ -135,7 +135,7 @@ Gets device clipboard latest entry.
 
 # GetEvent
 
-GetEvent()
+> ### GetEvent()
 
 > ## Arguments
 >
@@ -159,13 +159,13 @@ GetEvent()
 
 # GetEventCount
 
-> GetEventCount()
+> ### GetEventCount()
 
 ---
 
 # DisableAllLights
 
-DisableAllLights()
+> ### DisableAllLights()
 
 > ## Arguments
 >
@@ -185,7 +185,7 @@ Disables all enabled lights.
 
 # GetPlayerCrouch
 
-GetPlayerCrouch()
+> ### GetPlayerCrouch()
 
 > ## Arguments
 >
@@ -206,7 +206,7 @@ Gets player crouch (?).
 
 # GetPlayerGrabPoint
 
-GetPlayerGrabPoint()
+> ### GetPlayerGrabPoint()
 
 > ## Arguments
 >
@@ -226,7 +226,7 @@ Gets the point in world space, where the player has grabbed a shape.
 
 # GetPlayerPitch
 
-GetPlayerPitch()
+> ### GetPlayerPitch()
 
 > ## Arguments
 >
@@ -249,7 +249,7 @@ Gets player pitch.
 
 **Only works if called by a *privileged script***
 
-GetPlayerToolRecoil()
+> ### GetPlayerToolRecoil()
 
 > ## Arguments
 >
@@ -270,7 +270,7 @@ Gets the current tool's recoil amount.
 
 # GetVehicleLocationWorldTransform
 
-GetVehicleLocationWorldTransform(vehicle)
+> ### GetVehicleLocationWorldTransform(vehicle)
 
 > ## Arguments
 >
@@ -293,7 +293,7 @@ Gets vehicle world space transform.
 
 **Only works if called by *data/script/achievements.lua***
 
-IsAchievementCompleted(id)
+> ### IsAchievementCompleted(id)
 
 > ## Arguments
 >
@@ -317,7 +317,7 @@ Checks if given achievement is completed.
 
 **Only works if called by *data/script/achievements.lua***
 
-IndicateAchievementProgress(id, cur, max)
+> ### IndicateAchievementProgress(id, cur, max)
 
 > ## Arguments
 >
@@ -341,7 +341,7 @@ Indicates how much of an achievement you've completed.
 
 # IsPlayerJumping
 
-IsPlayerJumping()
+> ### IsPlayerJumping()
 
 > ## Arguments
 >
@@ -366,7 +366,7 @@ Gets if the player is jumping.
 
 # GetScriptId
 
-GetScriptId()
+> ### GetScriptId()
 
 > ## Arguments
 >
@@ -387,7 +387,7 @@ Gets handle of script that ran the fucntion.
 
 # GetShapeStrength
 
-GetShapeStrength(shape)
+> ### GetShapeStrength(shape)
 
 > ## Arguments
 >
@@ -409,7 +409,7 @@ Gets strength parameter of shape.
 
 # IsRunningOn...
 
-IsRunningOn...()
+> ### IsRunningOn...()
 List of available platforms:
 - Apple
 - Egs (Epic Games Store)
@@ -447,7 +447,7 @@ Checks if game is being ran on specified platform.
 
 **Only works if called by a *privileged script***
 
-SaveShape(shape, filename)
+> ### SaveShape(shape, filename)
 
 > ## Arguments
 >
@@ -477,7 +477,7 @@ Saves shape (and its xml) to *Documents\Teardown\creativemode* and makes it spaw
 
 **Only works if called by a *privileged script***
 
-SetClipboardText(text)
+> ### SetClipboardText(text)
 
 > ## Arguments
 >
