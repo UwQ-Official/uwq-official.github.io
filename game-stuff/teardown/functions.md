@@ -1,40 +1,40 @@
 # Undocumented Functions
 
-[AddSnow](#addsnowshape-point-amount)
+[AddSnow](#addsnow)
 
-[Command](#commandcmd-param)
+[Command](#command)
 
-[CompleteAchievement](#completeachievementach_id)
+[CompleteAchievement](#completeachievement)
 
-[GetClipboardText](#getclipboardtext)
+[GetClipboardText](#getclipboard)
 
-[GetEvent](#geteventevent-id)
+[GetEvent](#geteventevent)
 
-[DisableAllLights](#disablealllights-1)
+[DisableAllLights](#disablealllights)
 
-[GetPlayerGrabPoint](#getplayergrabpoint-1)
+[GetPlayerGrabPoint](#getplayergrabpoint)
 
-[GetPlayerPitch](#getplayerpitch-1)
+[GetPlayerPitch](#getplayerpitch)
 
-[GetPlayerToolRecoil](#getplayertoolrecoil-1)
+[GetPlayerToolRecoil](#getplayertoolrecoil)
 
-[GetVehicleLocationWorldTransform](#getvehiclelocationworldtransformvehicle-1)
+[GetVehicleLocationWorldTransform](#getvehiclelocationworldtransformvehicle)
 
-[IsAchievementCompleted](#isachievementcompletedid)
+[IsAchievementCompleted](#isachievementcompleted)
 
-[IndicateAchievementProgress](#indicateachievementprogressid-cur-max)
+[IndicateAchievementProgress](#indicateachievementprogress)
 
-[IsPlayerJumping](#isplayerjumping-1)
+[IsPlayerJumping](#isplayerjumping)
 
-[GetScriptId](#getsriptid-1)
+[GetScriptId](#getsriptid)
 
-[GetShapeStrength](#getshapestrengthshape)
+[GetShapeStrength](#getshapestrength)
 
-[IsRunningOn...](#isrunningon-1)
+[IsRunningOn...](#isrunningon)
 
-[SaveShape](#saveshapeshape-filename)
+[SaveShape](#saveshape)
 
-[SetClipboardText](#setclipboardtexttext)
+[SetClipboardText](#setclipboardtext)
 
 # AddSnow
 
