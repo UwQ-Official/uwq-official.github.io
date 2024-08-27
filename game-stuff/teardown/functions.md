@@ -10,6 +10,8 @@
 
 [GetEvent](#geteventevent)
 
+[GetEventCount](#geteventcount)
+
 [DisableAllLights](#disablealllights)
 
 [GetPlayerGrabPoint](#getplayergrabpoint)
@@ -147,6 +149,8 @@ Gets device clipboard latest entry.
 >
 > Usually 4 outputs, but depends on *event*
 
+Gets info about event
+
     function tick(dt)
         count = GetEventCount("playerhurt")
 
@@ -160,6 +164,26 @@ Gets device clipboard latest entry.
 # GetEventCount
 
 > ### GetEventCount()
+
+> ### GetEventCound(event)
+
+> ## Arguments
+>
+> event (string) - event name
+
+> ## Return value
+>
+> count (number) - amount of events with such name
+
+Gets the amount of events that already happened
+
+    function tick(dt)
+        count = GetEventCount("playerhurt")
+
+        for i=1, #count do
+            player, before, after, attacker = GetEvent("playerhurt", i)
+        end
+    end
 
 ---
 
