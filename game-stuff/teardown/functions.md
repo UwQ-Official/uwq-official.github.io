@@ -38,6 +38,8 @@
 
 [SetClipboardText](#setclipboardtext)
 
+[TriggerEvent](#triggerevent)
+
 # AddSnow
 
 > ### AddSnow(shape, point, amount)
@@ -515,6 +517,31 @@ Copies given text to device clipboard (ONLY RUN ONCE!).
 
     function init()
         SetClipboardText("Hello, World!")
+    end
+
+---
+
+# TriggerEvent
+
+> ### TriggerEvent(event, param)
+
+> ## Arguments
+>
+> event - event name
+>
+> param - event param
+
+> ## Return Value
+>
+> none
+
+Triggers an event with given parameter
+
+    -- Please, give a better exaple smh, don't copy data/script/characters.lua code
+    local function UnlockCharacter(character)
+        SetBool("savegame.characters." .. character, true)
+        SetBool("savegame.freshcharacters." .. character, true)
+        TriggerEvent("CharUnlocked", character)
     end
 
 ---
