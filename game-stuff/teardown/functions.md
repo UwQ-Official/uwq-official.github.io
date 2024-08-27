@@ -140,6 +140,7 @@ GetEvent()
 > ## Arguments
 >
 > event (string) - event name
+> 
 > id (number) - event id (number in order of when events happened)
 
 > ## Return Value
@@ -153,6 +154,12 @@ GetEvent()
             player, before, after, attacker = GetEvent("playerhurt", i)
         end
     end
+
+---
+
+# GetEventCount
+
+> GetEventCount()
 
 ---
 
