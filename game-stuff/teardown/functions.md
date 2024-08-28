@@ -8,7 +8,7 @@
 
 [GetClipboardText](#getclipboard)
 
-[GetEvent](#geteventevent)
+[GetEvent](#getevent)
 
 [GetEventCount](#geteventcount)
 
