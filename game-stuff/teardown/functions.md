@@ -167,8 +167,6 @@ Gets info about event
 
 # GetEventCount
 
-> ### GetEventCount()
-
 > ### GetEventCound(event)
 
 > ## Arguments
@@ -471,7 +469,7 @@ Checks if game is being ran on specified platform.
 
 ---
 
-# RobotRemoveTaggedJointsCPP()
+# RobotRemoveTaggedJointsCPP
 
 > ### RobotRemoveTaggedJointsCPP(time, tag1, tag2)
 
