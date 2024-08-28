@@ -40,14 +40,21 @@
 
 [interact](#interacttext)
 
+[interactive](#interactive)
+
 [invisible](#invisible)
+
 [level](#level)
 
 [night](#night)
 
+[nocam](#nocam)
+
 [nocull](#nocull)
 
 [nodrive](#nodribe)
+
+[noidlecursor](#noidlecursor)
 
 [nonav](#nonav)
 
@@ -197,6 +204,16 @@
 >
 > *text* can be any word (as long as it doesn't contain spaces) or localization entry.
 
+> ## interaction
+>
+> screen
+
+> ## interactive
+>
+> screen
+>
+> Makes screen interactive.
+
 > ## invisible
 >
 > shape
@@ -215,6 +232,12 @@
 >
 > Tagged lights will be turned off when enviroment parameter *nightlight* is currently set to *false*.
 
+> ## nocam
+>
+> screen
+>
+> Don't make screen fullscreen when interacting with it (goes with **interactive** tag).
+
 > ## nocull
 >
 > shape
@@ -226,6 +249,12 @@
 > vehicle
 >
 > Tagged vehicle cannot be driven by player.
+
+> ## noidlecursor
+>
+> screen
+>
+> Only show cursor when interacting with screen.
 
 > ## nonav
 >
