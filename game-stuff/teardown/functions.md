@@ -406,7 +406,7 @@ Gets handle of script that ran the fucntion.
 
     function init()
         script = GetScriptId()
-        DebugPrint(GetScriptId())
+        DebugPrint(script)
     end
 
 ---
