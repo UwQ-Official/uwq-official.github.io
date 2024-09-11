@@ -28,7 +28,7 @@
 
 [IsPlayerJumping](#isplayerjumping)
 
-[GetScriptId](#getsriptid)
+[GetScriptId](#getscriptid)
 
 [GetShapeStrength](#getshapestrength)
 
