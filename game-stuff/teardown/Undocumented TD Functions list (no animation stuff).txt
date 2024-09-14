@@ -22,8 +22,8 @@ GetBodyHit??
 GetBodyHitsCount??
 GetButtonsByAction
 `GetClipboardText
-GetEvent
-GetEventCount
+`GetEvent
+`GetEventCount
 GetFlashlight** - Doesn't do anything
 GetKeyByAction
 GetLastSound
