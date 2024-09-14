@@ -42,6 +42,10 @@
 
 [TriggerEvent](#triggerevent)
 
+[RadiolinkCheckConnectionCPP](#radiolinkcheckconnectioncpp)
+
+[RadiolinkDrawLinesCPP](#radiolinkdrawlinescpp)
+
 # AddSnow
 
 > ### AddSnow(shape, point, amount)
@@ -568,6 +572,70 @@ Triggers an event with given parameter
         SetBool("savegame.freshcharacters." .. character, true)
         TriggerEvent("CharUnlocked", character)
     end
+
+---
+
+# RadiolinkCheckConnectionCPP
+
+> ### RadiolinkCheckConnectionCPP(rPos, tPos, rShape, tShape)
+
+> ## Arguments
+>
+> rPos (TVec) - reciever pos
+>
+> tPos (TVec) - transmitter pos
+>
+> rShape (handle) - reciever shape
+>
+> tShape (handle) - transmitter shape
+
+> ## Return value
+>
+> connection (bool) - true if there are no shapes between *r* and *t* and if the points are close enough
+>
+> dir (Vec) - direction
+>
+> length (number) - distance between *r* and *t*
+
+Checks if connection can be made between two points (*r* and *t*).
+
+    -- No example available :/
+
+---
+
+# RadiolinkDrawLinesCPP
+
+> ### RadiolinkDrawLinesCPP(radius, length, dir, tPos, rPos, timer, r, g, b, a)
+
+> ## Arguments
+>
+> radius (number) - Line radius
+>
+> length (number) - Line length
+>
+> dir (Vec) - Line direction
+>
+> tPos (TVec) - transmitter pos
+>
+> rPos (TVec) - reciever pos
+>
+> timer (number)
+>
+> r (number) - red color value (between 0 and 1)
+>
+> g (number) - green color value (between 0 and 1)
+>
+> b (number) - blue color value (between 0 and 1)
+>
+> a (number) - alpha channel value (between 0 and 1)
+
+> ## Return value
+>
+> none
+
+Draws a line between two points (*t* and *r*) with given radius and color.
+
+    -- No example available :/
 
 ---
 

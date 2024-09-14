@@ -1,0 +1,92 @@
+smokeUpdateCPP(smoke, pos, dt)
+
+smoke (id)
+pos (TVec)
+dt (time)
+
+=
+
+none
+
+===
+
+trailsUpdateCPP(trail, dt)
+
+trail (id)
+dt (time)
+
+=
+
+none
+
+===
+
+fireUpdateCPP(fire, pos, dt)
+
+fire (id)
+pos (TVec)
+dt (time)
+
+=
+
+none
+
+===
+
+explosionSparksCPP(pos, count, vel)
+
+pos (TVec) - explosion pos
+count (number) - num of sparks
+vel (Vec) - velocity of sparks
+
+=
+
+none
+
+===
+
+explosionDebrisCPP(pos, count, vel)
+
+pos (TVec) - explosion pos
+count (number)
+vel (Vec)
+
+=
+
+none
+
+===
+
+RadiolinkCheckConnectionCPP(rPos, tPos, rShape, tShape)
+
+rPos (TVec) - reciever pos
+tPos (TVec) - transmitter pos
+rShape (handle) - reciever shape
+tShape (handle) - transmitter shape
+
+=
+
+connection (boolean) - true if connected (no shapes between r and t)
+dir (Vec) - direction of connection
+length (number) - distance between r and t
+
+===
+
+RadiolinkDrawLinesCPP(r, length, dir, tPos, rPos, timer, r, g, b, alpha)
+
+r (number) - line radius
+length (number) - line length
+dir (Vec) - line direction
+tPos (TVec) - transmitter pos
+rPos (TVec) - reciever pos
+timer (number) - timer (used to switch line color when connected)
+r - Red
+g - Green
+b - Blue
+alpha - Alpha
+
+=
+
+none
+
+===
