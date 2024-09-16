@@ -1,0 +1,85 @@
+
+
+ActivityAvailabilityChange
+ActivityEnd
+ActivityResume
+ActivityStart
+ActivityTerminate
+
+
+
+
+
+DeleteShape		#
+
+FxEmitSmokeCPP
+GetActionByButton
+GetBodyHit??
+GetBodyHitsCount??
+GetButtonsByAction
+`
+`
+`
+`
+GetKeyByAction
+
+GetLayoutActions
+
+
+
+`
+`
+
+`
+`
+
+`
+`
+`
+`
+`
+`
+`
+`
+`
+
+`
+`
+IsBodyHitted??
+`
+`
+
+
+QueryLayerFilter
+
+
+`
+`
+RobotAimUpdateCPP#
+     FootStepCPP
+     GetBodyParametersCPP
+     GetTransformAndAxesCPP#
+     HoverGetUpCPP#
+     HoverUpright
+     ProcessSamplesCPP
+     RejectAllBodiesCPP#
+`
+     SensorGetBlockedCPP#
+     SetBodyCollisionFilterCPP#
+     SetFootConstraintsCPP#
+`
+`
+`
+`
+
+
+SetPresence??
+SetRopeSlack			#
+SetVehicleEngineHealth??	#
+
+
+TornadoBodiesSuctionCPP
+TornadoSpawnParticlesCPP
+TriggerEvent - Example in data/script/spawn.lua I: 1. event type; 2. event data?
+WatchBodyHit??
+WinddustSpawnParticlesCPP

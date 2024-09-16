@@ -12,7 +12,7 @@ ActivityTerminate
 `Command** - https://x4fx77x4f.github.io/dennispedia/teardown/g/Command.html
 `CompleteAchievement
 CreatePathPlanner
-DebugTransform??
+
 DeletePathPlanner
 DeleteShape??
 `DisableAllLights
@@ -24,7 +24,7 @@ GetButtonsByAction
 `GetClipboardText
 `GetEvent
 `GetEventCount
-GetFlashlight** - Doesn't do anything
+`GetFlashlight
 GetKeyByAction
 GetLastSound
 GetLayoutActions
@@ -33,13 +33,10 @@ GetPathPoint
 GetPathState
 `GetPlayerAimInfo
 `GetPlayerCrouch
-GetPlayerEyeTransform*?
+
 `GetPlayerGrabPoint
 `GetPlayerPitch
-GetPlayerRigHasTag*?
-GetPlayerRigLocationWorldTransform*?
-GetPlayerRigTagValue*?
-GetPlayerRigTransform*?
+
 `GetPlayerToolRecoil
 `GetPlayerWalkingSpeed
 `GetScriptId** - Why? Scripts are basically useless at runtime, ... unless?
@@ -89,16 +86,14 @@ RobotAimUpdateCPP#
 SaveCameraOverrideTransform
 `SaveShape - I: shape, file_name, No O
 `SetClipboardText
-SetFlashlight** - ???
-SetPlayerHidden** - ???
-SetPlayerRigLocationLocalTransform*?
-	 RigTags*?
-	 RigTransform*?
+`SetFlashlight
+
+
 SetPresence??
 SetRopeSlack
 SetVehicleEngineHealth??
-SpawnLayer** - What is a layer? ???
-TSharedUserdata
+
+
 TornadoBodiesSuctionCPP
 TornadoSpawnParticlesCPP
 TriggerEvent - Example in data/script/spawn.lua I: 1. event type; 2. event data?

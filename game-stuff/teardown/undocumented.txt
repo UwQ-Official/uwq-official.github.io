@@ -90,3 +90,21 @@ alpha - Alpha
 none
 
 ===
+
+SetRopeSlack() #internal
+
+===
+
+SetVehicleEngineHealth(vehicle, health) #internal
+
+===
+
+HasInputController() #internal
+
+none
+
+=
+
+has (bool) - true if player has input controller
+
+===

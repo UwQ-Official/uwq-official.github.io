@@ -20,6 +20,8 @@
 
 [cranetop](#cranetop)
 
+[customhealth](#customhealth)
+
 [dumptruck](#dumptruck)
 
 [exhaust](#exhaustamount)
@@ -139,6 +141,12 @@
 > vehicle
 >
 > Displays crane arm controls.
+
+> ## customhealth
+>
+> vehicle
+>
+> Disables vehicle health going down when vehicle is being broken. Used by [SetVehicleHealth()](https://teardowngame.com/experimental/api.html#SetVehicleHealth).
 
 > ## dumptruck
 >

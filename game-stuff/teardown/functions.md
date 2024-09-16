@@ -46,6 +46,16 @@
 
 [RadiolinkDrawLinesCPP](#radiolinkdrawlinescpp)
 
+[GetFlashlight](#getflashlight)
+
+[SetFlashlight](#setflashlight)
+
+[HasInputController](#hasinputcontroller)
+
+[SaveCameraOverrideTransform](#savecameraoverridetransform)
+
+---
+
 # AddSnow
 
 > ### AddSnow(shape, point, amount)
@@ -124,7 +134,7 @@ Completes steam/ps/xbox achievement.
 
 **Only works if called by a *privileged script***
 
-> ### GetClipboardText()
+> ### text = GetClipboardText()
 
 > ## Arguments
 >
@@ -145,7 +155,7 @@ Gets device clipboard latest entry.
 
 # GetEvent
 
-> ### GetEvent()
+> ### a, b, c, d = GetEvent()
 
 > ## Arguments
 >
@@ -171,7 +181,7 @@ Gets info about event
 
 # GetEventCount
 
-> ### GetEventCound(event)
+> ### count = GetEventCound(event)
 
 > ## Arguments
 >
@@ -215,7 +225,7 @@ Disables all enabled lights.
 
 # GetPlayerCrouch
 
-> ### GetPlayerCrouch()
+> ### crouch = GetPlayerCrouch()
 
 > ## Arguments
 >
@@ -236,7 +246,7 @@ Gets player crouch (?).
 
 # GetPlayerGrabPoint
 
-> ### GetPlayerGrabPoint()
+> ### grabPoint = GetPlayerGrabPoint()
 
 > ## Arguments
 >
@@ -244,7 +254,7 @@ Gets player crouch (?).
 
 > ## Return value
 >
-> grab point (Vec) - Vector position in world space
+> grabPoint (Vec) - Vector position in world space
 
 Gets the point in world space, where the player has grabbed a shape.
 
@@ -256,7 +266,7 @@ Gets the point in world space, where the player has grabbed a shape.
 
 # GetPlayerPitch
 
-> ### GetPlayerPitch()
+> ### pitch = GetPlayerPitch()
 
 > ## Arguments
 >
@@ -279,7 +289,7 @@ Gets player pitch.
 
 **Only works if called by a *privileged script***
 
-> ### GetPlayerToolRecoil()
+> ### recoil = GetPlayerToolRecoil()
 
 > ## Arguments
 >
@@ -300,7 +310,7 @@ Gets the current tool's recoil amount.
 
 # GetVehicleLocationWorldTransform
 
-> ### GetVehicleLocationWorldTransform(vehicle)
+> ### world = GetVehicleLocationWorldTransform(vehicle)
 
 > ## Arguments
 >
@@ -323,7 +333,7 @@ Gets vehicle world space transform.
 
 **Only works if called by *data/script/achievements.lua***
 
-> ### IsAchievementCompleted(id)
+> ### completed = IsAchievementCompleted(id)
 
 > ## Arguments
 >
@@ -371,7 +381,7 @@ Indicates how much of an achievement you've completed.
 
 # IsPlayerJumping
 
-> ### IsPlayerJumping()
+> ### jumping = IsPlayerJumping()
 
 > ## Arguments
 >
@@ -396,7 +406,7 @@ Gets if the player is jumping.
 
 # GetScriptId
 
-> ### GetScriptId()
+> ### script = GetScriptId()
 
 > ## Arguments
 >
@@ -404,7 +414,7 @@ Gets if the player is jumping.
 
 > ## Return value
 >
-> script id (handle) - Handle to script
+> script (handle) - Handle to script
 
 Gets handle of script that ran the fucntion.
 
@@ -417,7 +427,7 @@ Gets handle of script that ran the fucntion.
 
 # GetShapeStrength
 
-> ### GetShapeStrength(shape)
+> ### strength = GetShapeStrength(shape)
 
 > ## Arguments
 >
@@ -439,7 +449,7 @@ Gets strength parameter of shape.
 
 # IsRunningOn...
 
-> ### IsRunningOn...()
+> ### isRunning = IsRunningOn...()
 List of available platforms:
 - Apple
 - Egs (Epic Games Store)
@@ -461,7 +471,7 @@ List of available platforms:
 
 > ## Return value
 >
-> is running (bool) - True if it is running, false if not
+> isRunning (bool) - True if it is running, false if not
 
 Checks if game is being ran on specified platform.
 
@@ -577,7 +587,7 @@ Triggers an event with given parameter
 
 # RadiolinkCheckConnectionCPP
 
-> ### RadiolinkCheckConnectionCPP(rPos, tPos, rShape, tShape)
+> ### connection, dir, length = RadiolinkCheckConnectionCPP(rPos, tPos, rShape, tShape)
 
 > ## Arguments
 >
@@ -634,6 +644,105 @@ Checks if connection can be made between two points (*r* and *t*).
 > none
 
 Draws a line between two points (*t* and *r*) with given radius and color.
+
+    -- No example available :/
+
+---
+
+# GetFlashlight
+
+> ### flash = GetFlashlight()
+
+> ## Arguments
+>
+> none
+
+> ## Return value
+>
+> flashlight (handle) - handle to flashlight
+
+Gets handle of current flashlight.
+
+    function init()
+        flash = GetFlashlight()
+        DebugWatch("old", flash)
+        
+        --- Make a proper example
+
+        new = FindLight("newflash", true)
+        SetFlashlight(new)
+        DebugWatch("new", new)
+    end
+
+---
+
+# SetFlashlight
+
+> ### SetFlashlight(light)
+
+> ## Arguments
+>
+> light (handle) - any light on the level
+
+> ## Return value
+>
+> none
+
+Sets given light as player flashlight (doesn't work with all lights).
+
+    function init()
+        flash = GetFlashlight()
+        DebugWatch("old", flash)
+        
+        --- Make a proper example
+
+        new = FindLight("newflash", true)
+        SetFlashlight(new)
+        DebugWatch("new", new)
+    end
+
+---
+
+# HasInputController
+
+**Only works if called by a *privileged script***
+
+> ### has = HasInputController()
+
+> ## Arguments
+>
+> none
+
+> ## Return value
+>
+> has (bool) - whether player has input controller or not
+
+Checks whether the player has an input controller or not.
+
+    function tick(dt)
+        if (IsRunningOnXbox() or IsRunningOnPlaystation()) and not controllerDisconnectedShow and LastInputDevice() == UI_DEVICE_GAMEPAD and not HasInputController() then
+            controllerDisconnectedShow = true
+            controllerDisconnectedWasPaused = GetBool("game.paused")
+            SetValue("controllerDisconnectedAlpha", 1, "easeout", 0.25)
+            SetPaused(true)
+        end
+    end
+
+---
+
+# SaveCameraOverrideTransform
+
+> ### SaveCameraOverrideTransform()
+
+> ## Arguments
+>
+> none
+
+> ## Return value
+>
+> none
+
+Saves the camera override transform after exiting override mode.
 
     -- No example available :/
 
