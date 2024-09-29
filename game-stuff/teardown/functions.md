@@ -1,5 +1,9 @@
 # Undocumented Functions
 
+## Miscellaneous
+
+Miscellaneous functions with no official documentation.
+
 [AddSnow](#addsnow)
 
 [Command](#command)
@@ -53,6 +57,18 @@
 [HasInputController](#hasinputcontroller)
 
 [SaveCameraOverrideTransform](#savecameraoverridetransform)
+
+
+
+---
+
+## User Interface
+
+User Interface functions, that are not officially documented.
+
+[UiTextInput](#uitextinput)
+
+[UiDrawLater](#uidrawlater)
 
 ---
 
@@ -512,7 +528,7 @@ Detaches joints connected to robot that are tagged with either **tag1** or **tag
 
 **Only works if called by a *privileged script***
 
-> ### SaveShape(shape, filename)
+> ### saved, error = SaveShape(shape, filename)
 
 > ## Arguments
 >
@@ -522,7 +538,9 @@ Detaches joints connected to robot that are tagged with either **tag1** or **tag
 
 > ## Return value
 >
-> none
+> saved (bool) - True if shape was saved, false if not
+>
+> error (string) - Reason in case shape wasn't saved (either "no_space" or "invalid_name")
 
 Saves shape (and its xml) to *Documents\Teardown\creativemode* and makes it spawnable.
 
@@ -531,8 +549,13 @@ Saves shape (and its xml) to *Documents\Teardown\creativemode* and makes it spaw
     end
 
     function tick(dt)
-        If InputDown("ctrl") and InputPressed("s") then
-            SaveShape(shape, "shape_" .. shape .. "-" .. math.random(0, 99))
+        if InputDown("ctrl") and InputPressed("s") then
+            saved, error = SaveShape(shape, "shape_" .. shape .. "-" .. math.random(0, 99))
+            if not saved and error == "no_space" then
+                SetString("hud.notification", "Not enough memory")
+            elseif error == "invalid_name" then
+                SetString("hud.notification", "Invalid name")
+            end
         end
     end
 
@@ -745,6 +768,119 @@ Checks whether the player has an input controller or not.
 Saves the camera override transform after exiting override mode.
 
     -- No example available :/
+
+---
+
+# ResumeLevel()
+
+> # ResumeLevel(id, file, \[layers\], \[qs\])
+
+> ## Arguments
+>
+> id (string) - Level id
+>
+> file (string) - Path to level XML/bin (*bin* has limited use)
+>
+> layers (string, optional) - Level layers
+>
+> qs (string, optional) - Quicksave
+
+> ## Return value
+>
+> none
+
+Resumes level.
+
+    function resumeCampaign()
+        -- find next mission: opened but without required score
+        -- otherwise start hub
+        for id,mission in pairs(gMissions) do
+            if GetInt("savegame.mission."..id) > 0 and GetInt("savegame.mission."..id..".score") < mission.required then
+                ResumeLevel(id, mission.file, mission.layers, "quicksavecampaign")
+                return
+            end
+        end
+        startHub()
+    end
+
+---
+
+# UiTextInput
+
+> ### input, active = UiTextInput(str, w, h, focus)
+
+> ## Arguments
+>
+> str (string) - Default text
+>
+> w (number) - Input field width
+>
+> h (number) - Input field height
+>
+> focus (bool)
+
+> ## Return value
+>
+> input (string) - Input text
+>
+> active (bool) - Whether text field is in focus (selected)
+
+Creates a text field that detects text input from keyboard.
+
+    -- No example avaliable :/
+
+---
+
+# UiDrawLater
+
+> ### UiDrawLater(draw)
+
+> ## Arguments
+>
+> draw (table) - What to draw
+
+> ## Return value
+>
+> none
+
+Draws given components later.
+
+    -- Structure is:
+	UiDrawLater({
+		draw = function(self) --Required, as is
+			UiPush()
+			-- Whatever you want to draw
+		UiPop()
+		end --of draw self function
+	})
+
+---
+
+# UiTextUnderline
+
+> ## UiTextUnderline(bool)
+
+> ## Arguments
+>
+> bool (bool) - Whether to underline text
+
+> ## Return vlaue
+>
+> none
+
+Underlines upcoming text.
+
+    function draw(dt)
+        UiPush()
+            UiFont("bold.ttf", 20)
+            UiTranslate(0, 20)
+            UiTextUnderline(true) -- Will underline any UiText() underneath, until set to false
+            UiText("Hello, World!")
+            UiTextUnderline(false) -- End of underline
+            UiTranslate(0, 20)
+            UiText("Goodbye, Cruel world!")
+        UiPop()
+    end
 
 ---
 

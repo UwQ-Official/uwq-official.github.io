@@ -15,7 +15,8 @@ DeleteShape		#
 FxEmitSmokeCPP
 GetActionByButton
 GetBodyHit??
-GetBodyHitsCount??
+GetBody
+sCount??
 GetButtonsByAction
 `
 `
@@ -80,6 +81,14 @@ SetVehicleEngineHealth??	#
 
 TornadoBodiesSuctionCPP
 TornadoSpawnParticlesCPP
-TriggerEvent - Example in data/script/spawn.lua I: 1. event type; 2. event data?
+`
 WatchBodyHit??
 WinddustSpawnParticlesCPP
+
+---
+
+Ui Functions
+
+---
+
+UiTextUnderline
