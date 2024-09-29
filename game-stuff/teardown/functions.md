@@ -70,6 +70,8 @@ User Interface functions, that are not officially documented.
 
 [UiDrawLater](#uidrawlater)
 
+[UiTextUnderline](#uitextunderline)
+
 ---
 
 # AddSnow
