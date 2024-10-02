@@ -1,4 +1,4 @@
--- Version 1.6.0 Experimental
+-- Version 1.6.0 Experimental #2
 
 ---@meta _
 
@@ -1762,7 +1762,7 @@ function IsHandleValid(handle) return false end
 function GetEntityType(handle) return "" end
 
 --- BEGINTABLE Entity type -- Available params
---- Body		-- desc (string), dynamic (boolean), mass (number), transform, velocity (vector(x, y, z)), angVelocity (vector(x, y, z)), active (boolean), friction (number), restitution (number), frictionMode (string), restitutionMode (string)
+--- Body		-- desc (string), dynamic (boolean), mass (number), transform, velocity (vector(x, y, z)), angVelocity (vector(x, y, z)), active (boolean), friction (number), restitution (number), frictionMode (average|minimum|multiply|maximum), restitutionMode (average|minimum|multiply|maximum)
 --- Shape		-- density (number), strength (number), size (number), emissiveScale (number), localTransform, worldTransform
 --- Light		-- enabled (boolean), color (vector(r, g, b)), intensity (number), transform, active (boolean), type (string), size (number), reach (number), unshadowed (number), fogscale (number), fogiter (number), glare (number)
 --- Location	-- transform
@@ -3651,10 +3651,6 @@ function MakeRagdoll(handle) end
 ---@param time? number Transition time
 function UnRagdoll(handle, time) end
 
---- Exclude animator from the next query
----@param handle number Animator handle
-function QueryRejectAnimator(handle) end
-
 --- Single animations, one-shot, will be processed after looping animations.
 ---
 --- Example:
@@ -3726,11 +3722,11 @@ function PlayAnimationFrame(handle, name, time, weight, filter) end
 --- 
 --- --You can also create a tree of groups, blending is performed in a depth-first order
 --- BeginAnimationGroup(animator, 0.5)
---- 	PlayAnimationLoop(a, 1.0)
---- 	PlayAnimationLoop(b, 0.2)
+--- 	PlayAnimationLoop(animator, "anim_a", 1.0)
+--- 	PlayAnimationLoop(animator, "anim_b", 0.2)
 --- 	BeginAnimationGroup(animator, 0.75)
---- 		PlayAnimationLoop(c, 1.0)
---- 		PlayAnimationLoop(d, 0.25)
+--- 		PlayAnimationLoop(animator, "anim_c", 1.0)
+--- 		PlayAnimationLoop(animator, "anim_d", 0.25)
 --- 	EndAnimationGroup(animator)
 --- EndAnimationGroup(animator)
 --- ```
@@ -3743,7 +3739,8 @@ function BeginAnimationGroup(handle, weight, filter) end
 ---@param handle number Animator handle
 function EndAnimationGroup(handle) end
 
---- Single animations, one-shot, will be processed after looping animations. By calling playAnimationInstances you can force it to be processed earlier and be able to "overwrite" the result of it
+--- Single animations, one-shot, will be processed after looping animations.
+--- By calling PlayAnimationInstances you can force it to be processed earlier and be able to "overwrite" the result of it if you want
 ---
 --- Example:
 --- ```lua
@@ -3761,9 +3758,7 @@ function EndAnimationGroup(handle) end
 --- SetBoneRotation(animator, "Spine1", rot, 1)
 --- ```
 ---@param handle number Animator handle
-function playAnimationInstances(handle) end
-
-function PlayAnimationInstances(...) end
+function PlayAnimationInstances(handle) end
 
 ---
 --- Example:
@@ -3901,7 +3896,13 @@ function GetBoneBody(handle, name) return 0 end
 ---
 --- Example:
 --- ```lua
---- local pos = GetBoneWorldTransform("lefthand")
+---     local animator = GetPlayerAnimator()
+---     local bones = GetBoneNames(animator)
+---     for i=1, #bones do
+---         local bone = bones[i]
+---         local t = GetBoneWorldTransform(animator,bone)
+---         DebugCross(t.pos)
+---     end
 --- ```
 ---@param handle number Animator handle
 ---@param name string Bone name
@@ -3911,28 +3912,12 @@ function GetBoneWorldTransform(handle, name) return Transform() end
 ---
 --- Example:
 --- ```lua
---- local list = GetAnimationEvents(animator)
---- for i=1, #list do
---- 	local event = list[i]
---- 	..
---- end
+--- local lt = getBindPoseTransform(animator, "lefthand")
 --- ```
----@param handle number animator handle
----@return any list Indexed table with event-names
-function GetBoneBindPoseTransform(...) return nil end
-
----
---- Example:
---- ```lua
---- if HasAnimationEvent(animator, "some_event") then
---- 	--Do something
---- end
---- ```
----@param handle number animator handle
----@return boolean found True if an event is found
-function GetAnimationEvents(...) return false end
-
-function HasAnimationEvent(...) end
+---@param handle number Animator handle
+---@param name string Bone name
+---@return TTransform transform Local space transform of the bone in bindpose
+function GetBoneBindPoseTransform(handle, name) return Transform() end
 
 ---
 --- Example:
@@ -4644,7 +4629,7 @@ function GetPlayerAimInfo(position, maxdist) return false, Vec(), Vec(), Vec(), 
 
 function GetPlayerToolRecoil(...) end
 
---- The player pitch angle is applied to the player camera transform. This value can be used to animate tool pitch movement when using SetToolTransformOverride().
+--- The player pitch angle is applied to the player camera transform. This value can be used to animate tool pitch movement when using SetToolTransformOverride.
 ---
 --- Example:
 --- ```lua
@@ -4700,6 +4685,18 @@ function GetPlayerTransform(includePitch) return Transform() end
 ---@param transform TTransform Desired player transform
 ---@param includePitch? boolean Set player pitch (look up/down) as well
 function SetPlayerTransform(transform, includePitch) end
+
+---
+--- Example:
+--- ```lua
+---     --Clear specific rig
+---     ClearPlayerRig(someId)
+--- 
+---     --Clear all rigs
+---     ClearPlayerRig(-1)
+--- ```
+---@param rig-id number Unique rig-id, -1 means all rigs
+function ClearPlayerRig(rig_id) end
 
 ---
 --- Example:
@@ -5241,56 +5238,59 @@ function RegisterTool(id, name, file, group) end
 ---@return number handle Handle to currently visible tool body or zero if none
 function GetToolBody() return 0 end
 
---- Return transforms of where the player hands should be
 ---
 --- Example:
 --- ```lua
 --- local right, left = GetToolHandPoseLocalTransform()
 --- ```
----@return any right Transform of right hand in tool space
----@return any left Transform of left hand or nil if single handed tool
-function GetToolHandPoseLocalTransform() return nil, nil end
+---@return TTransform right Transform of right hand relative to the tool body origin, or nil if the right hand is not used
+---@return TTransform left Transform of left hand, or nil if left hand is not used
+function GetToolHandPoseLocalTransform() return Transform(), Transform() end
 
---- Return transforms of where the player hands should be
 ---
 --- Example:
 --- ```lua
 --- local right, left = GetToolHandPoseWorldTransform()
 --- ```
----@return any right Transform of right hand in world space
----@return any left Transform of left hand or nil if single handed tool
-function GetToolHandPoseWorldTransform() return nil, nil end
+---@return TTransform right Transform of right hand in world space, or nil if the right hand is not used
+---@return TTransform left Transform of left hand, or nil if left hand is not used
+function GetToolHandPoseWorldTransform() return Transform(), Transform() end
 
+--- Use this function to position the character's hands on the currently equipped tool. This function must be called every frame from the tick function.
+--- In third-person view, failing to call this function can lead to different outcomes depending on how the tool is animated:
+--- <ul>
+--- <li>If the tool's transform is not explicitly set or is set using SetToolTransform, not calling this function will trigger a fallback solution where the right hand is automatically positioned.</li>
+--- <li>If the tool is animated using the SetToolTransformOverride function, not calling this function will result in the character's animation taking control of the hand movement</li>
+--- </ul>
+--- 
 ---
 --- Example:
 --- ```lua
---- SetToolHandPose(Transform(Vec(0, 0, 0)), Transform(Vec(-0.2, 0, -0.5)))
+--- if GetBool("game.thirdperson") then
+--- 	if aiming then
+--- 		SetToolHandPoseLocalTransform(Transform(Vec(0.2,0.0,0.0), QuatAxisAngle(Vec(0,1,0), 90.0)), Transform(Vec(-0.1, 0.0, -0.4)))
+--- 	else
+--- 		SetToolHandPoseLocalTransform(Transform(Vec(0.2,0.0,0.0), QuatAxisAngle(Vec(0,1,0), 90.0)), nil)
+--- 	end
+--- end
 --- ```
----@param right any Transform of right hand in tool body space
----@param left? any Optional transform of left hand (omit for single-handed tool)
+---@param right TTransform Transform of right hand relative to the tool body origin, or nil if right hand is not used
+---@param left TTransform Transform of left hand, or nil if left hand is not used
 function SetToolHandPoseLocalTransform(right, left) end
-
----
---- Example:
---- ```lua
---- SetToolHandPose(Transform(Vec(0, 0, 0)), Transform(Vec(-0.2, 0, -0.5)))
---- ```
----@param right any Transform of right hand in tool body space
----@param left? any Optional transform of left hand (omit for single-handed tool)
-function SetToolHandPoseWorldTransform(right, left) end
 
 --- Return transform of a tool location in tool space. Locations can be defined using the tool prefab editor.
 ---
 --- Example:
 --- ```lua
 --- local right  = GetToolLocationLocalTransform("righthand")
---- SetToolHandPoseLocalTransform(right, Transform(), false)
+--- SetToolHandPoseLocalTransform(right, nil)
 --- ```
 ---@param name string Name of location
----@return any location Transform of a tool location in tool space
-function GetToolLocationLocalTransform(name) return nil end
+---@return TTransform location Transform of a tool location in tool space or nil if location is not found.
+function GetToolLocationLocalTransform(name) return Transform() end
 
---- Return transform of a tool location in world space. Locations can be defined using the tool prefab editor.
+--- Return transform of a tool location in world space. Locations can be defined using the tool prefab editor. A tool location is defined in tool space and to get the world space transform a tool body is required.
+--- If a tool body does not exist this function will return nil.
 ---
 --- Example:
 --- ```lua
@@ -5298,8 +5298,8 @@ function GetToolLocationLocalTransform(name) return nil end
 --- Shoot(muzzle, direction)
 --- ```
 ---@param name string Name of location
----@return any location Transform of a tool location in world space
-function GetToolLocationWorldTransform(name) return nil end
+---@return TTransform location Transform of a tool location in world space or nil if the location is not found or if there is no visible tool body.
+function GetToolLocationWorldTransform(name) return Transform() end
 
 --- Apply an additional transform on the visible tool body. This can be used to
 --- create tool animations. You need to set this every frame from the tick function.
@@ -5318,9 +5318,9 @@ function GetToolLocationWorldTransform(name) return nil end
 ---@param sway? number Tool sway amount. Default is 1.0.
 function SetToolTransform(transform, sway) end
 
---- Apply an additional transform on the visible tool body. Calling this function will disable all internal animations on the tool.
---- Pitch, sway and crouch movement must be included in the transform. Use this function to get full control over the tool animation.
---- You need to set this every frame from the tick function.
+--- This function serves as an alternative to SetToolTransform, providing full control over tool animation by disabling all internal tool animations.
+--- When using this function, you must manually include pitch, sway, and crouch movements in the transform. To maintain this control, call the function every frame from the tick function.
+--- 
 ---
 --- Example:
 --- ```lua
@@ -5466,8 +5466,7 @@ function SetSoundLoopUser(handle, nominalDistance) return false end
 --- --[[
 --- 	local snd
 --- 	function init()
---- 		--Load sound serie, OBS no ".ogg" or sequence number in filename
---- 		snd = LoadSound("example-sound")
+--- 		snd = LoadSound("example-sound0.ogg")
 --- 	end
 --- 
 --- 	-- Plays a random sound from the loaded sound series
@@ -5513,8 +5512,7 @@ function PlaySound(handle, pos, volume, registerVolume, pitch) return 0 end
 --- --[[
 --- 	local snd
 --- 	function init()
---- 		--Load sound serie, OBS no ".ogg" or sequence number in filename
---- 		snd = LoadSound("example-sound")
+--- 		snd = LoadSound("example-sound0.ogg")
 --- 	end
 --- 
 --- 	-- Plays a random sound from the loaded sound series
@@ -5909,6 +5907,10 @@ function QueryRequire(layers) end
 function QueryInclude(layers) end
 
 function QueryLayerFilter(...) end
+
+--- Exclude animator from the next query
+---@param handle number Animator handle
+function QueryRejectAnimator(handle) end
 
 --- Exclude vehicle from the next query
 ---
@@ -6805,9 +6807,40 @@ function GetCameraTransform() return Transform() end
 ---@param fov? number Optional horizontal field of view in degrees (default: 90)
 function SetCameraTransform(transform, fov) end
 
-function RequestFirstPerson(...) end
+--- Use this function to switch to first-person view, overriding the player's selected third-person view.
+--- This is particularly useful for scenarios like looking through a camera viewfinder or a rifle scope.
+--- Call the function continuously to maintain the override.
+---
+--- Example:
+--- ```lua
+--- function tick()
+--- 	if useViewFinder then
+--- 		RequestFirstPerson(true)
+--- 	end
+--- end
+--- 
+--- function draw()
+--- 	if useViewFinder and !GetBool("game.thirdperson") then
+--- 		-- Draw view finder overlay
+--- 	end
+--- end
+--- ```
+---@param transition boolean Use transition
+function RequestFirstPerson(transition) end
 
-function RequestThirdPerson(...) end
+--- Use this function to switch to third-person view, overriding the player's selected first-person view.
+--- Call the function continuously to maintain the override.
+---
+--- Example:
+--- ```lua
+--- function tick()
+--- 	if useThirdPerson then
+--- 		RequestThirdPerson(true)
+--- 	end
+--- end
+--- ```
+---@param transition boolean Use transition
+function RequestThirdPerson(transition) end
 
 --- Saves the camera override transform after exiting override mode.
 --- Can be used for smoother transition between camera mods. For example MODE_OVERRIDE -> MODE_FOLLOW
@@ -8208,6 +8241,24 @@ function UiFontHeight() return 0 end
 ---@return string linkId Link id of clicked link
 function UiText(text, move, maxChars) return 0, 0, 0, 0, "" end
 
+--- 
+---
+--- Example:
+--- ```lua
+--- 
+--- UiFont("regular.ttf", 30)
+--- UiPush()
+--- 	UiTextDisableWildcards(true)
+--- 	-- icon won't be embedded here, text will be left as is
+--- 	UiText("Text with embedded icon image [[menu:menu_accept;iconsize=42,42]]")
+--- UiPop()
+--- 
+--- -- embedding works as expected
+--- UiText("Text with embedded icon image [[menu:menu_accept;iconsize=42,42]]")
+--- ```
+---@param disable boolean Enable or disable wildcard [[...]] substitution support in UiText
+function UiTextDisableWildcards(disable) end
+
 --- This function toggles the use of a fixed line height for text rendering.
 --- When enabled (true), the line height is set to a constant value determined by
 --- the current font metrics, ensuring uniform spacing between lines of text.
@@ -8325,6 +8376,14 @@ function UiGetSymbolsCount(text) return 0 end
 ---@param to number To element index
 ---@return string substring Substring
 function UiTextSymbolsSub(text, from, to) return "" end
+
+function UiTextToLower(...) end
+
+function UiTextToUpper(...) end
+
+---@param text string 
+---@return any words 
+function UiRichTextSplitByWords(text) return nil end
 
 ---
 --- Example:
@@ -8880,9 +8939,12 @@ function UiSliderThumbSize(width, height) end
 ---@param width number Input field width
 ---@param height number Input field height
 ---@param focus boolean Usage in game code suggests this parameter should be set to true for 1 frame to request focus
+---@param hideCursor? boolean Hide the blinking cursor even if the field is in focus
 ---@return string value Potentially altered text
 ---@return boolean active Does the field active
-function UiTextInput(str, width, height, focus) return "", false end
+function UiTextInput(str, width, height, focus, hideCursor) return "", false end
+
+function UiTextInputKeyBoardShortCutKey(...) end
 
 ---
 --- Example:
