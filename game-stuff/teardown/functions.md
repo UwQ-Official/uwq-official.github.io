@@ -58,8 +58,6 @@ Miscellaneous functions with no official documentation.
 
 [SaveCameraOverrideTransform](#savecameraoverridetransform)
 
-
-
 ---
 
 ## User Interface
@@ -72,7 +70,27 @@ User Interface functions, that are not officially documented.
 
 [UiTextUnderline](#uitextunderline)
 
+<!-- [UiTextToLower](#uitexttolower) -->
+
+<!-- [UiTextToUpper](#uitexttoupper) -->
+
+<!-- [UiRichTextSplitByWords](#uirichtextsplitbywords) -->
+
+<!-- [UiTextInputKeyBoardShortCutKey](#uitextinputkeyboardshortcutkey) -->
+
 ---
+<!-- Types are:
+ - handle     (number) - entity id
+ - number     (number) - any number value
+ - bool       (true|false) - boolean
+ - string     (text) - any text
+ - TVec       (table) - table with 3 entries / x;y;z   (axis)
+ - TQuat      (table) - table with 4 entries / ?;?;?;? (has pitch and yawn?)
+ - TTransform (table) - {TVec, TQuat}        
+ - any        (number|true|false|text|table) - dependant on other input | undefined
+ - table      (table) - any table
+ - $type, optional - points out that argument is not required for function to work and has a default value when not given ; Show on example as [$out] (square brackets)
+ -->
 
 # AddSnow
 
@@ -140,11 +158,7 @@ Runs engine commands (e.g. taking a screenshot, opening a url/folder, etc.).
 
 Completes steam/ps/xbox achievement.
 
-    function tick(dt)
-        if not IsAchievementCompleted("ACH_WATCH_ABOUT") then
-            CompleteAchievement("ACH_WATCH_ABOUT")
-        end
-    end
+    -- redacted
 
 ---
 
@@ -272,7 +286,7 @@ Gets player crouch (?).
 
 > ## Return value
 >
-> grabPoint (Vec) - Vector position in world space
+> grabPoint (TVec) - Vector position in world space
 
 Gets the point in world space, where the player has grabbed a shape.
 
@@ -336,7 +350,7 @@ Gets the current tool's recoil amount.
 
 > ## Return value
 >
-> world (TTransform) - none?
+> world (TVec) <!-- Seems to return nothing ;; Verify -->
 
 Gets vehicle world space transform.
 
@@ -363,11 +377,7 @@ Gets vehicle world space transform.
 
 Checks if given achievement is completed.
 
-    fucntion tick(dt)
-        if not IsAchievementCompleted("ACH_WATCH_ABOUT") then
-            CompleteAchievement("ACH_WATCH_ABOUT")
-        end
-    end
+    -- redacted
 
 ---
 
@@ -391,9 +401,7 @@ Checks if given achievement is completed.
 
 Indicates how much of an achievement you've completed.
 
-    if not IsAchievementCompleted(PROGRESSIVE_ACH) then
-        IndicateAchievementProgress(PROGRESSIVE_ACH, savegameValue, 300)
-    end
+    -- redacted
 
 ---
 
@@ -591,9 +599,9 @@ Copies given text to device clipboard (ONLY RUN ONCE!).
 
 > ## Arguments
 >
-> event - event name
+> event (string) - event name
 >
-> param - event param
+> param (any) - event param
 
 > ## Return Value
 >
@@ -628,7 +636,7 @@ Triggers an event with given parameter
 >
 > connection (bool) - true if there are no shapes between *r* and *t* and if the points are close enough
 >
-> dir (Vec) - direction
+> dir (TQuat) - direction <!-- Verify either TQuat, TVec or TTransform -->
 >
 > length (number) - distance between *r* and *t*
 
@@ -648,7 +656,7 @@ Checks if connection can be made between two points (*r* and *t*).
 >
 > length (number) - Line length
 >
-> dir (Vec) - Line direction
+> dir (TVec) - Line direction
 >
 > tPos (TVec) - transmitter pos
 >
@@ -775,7 +783,7 @@ Saves the camera override transform after exiting override mode.
 
 # ResumeLevel()
 
-> # ResumeLevel(id, file, \[layers\], \[qs\])
+> ### ResumeLevel(id, file, \[layers\], \[qs\]) <!-- TOOD: Verify? -->
 
 > ## Arguments
 >
@@ -809,7 +817,7 @@ Resumes level.
 
 # UiTextInput
 
-> ### input, active = UiTextInput(str, w, h, focus)
+> ### input, active = UiTextInput(str, w, h, focus, \[hideCursor\])
 
 > ## Arguments
 >
@@ -820,6 +828,8 @@ Resumes level.
 > h (number) - Input field height
 >
 > focus (bool)
+>
+> hideCursor (bool, optional)
 
 > ## Return value
 >
@@ -835,7 +845,7 @@ Creates a text field that detects text input from keyboard.
 
 # UiDrawLater
 
-> ### UiDrawLater(draw)
+> ### UiDrawLater(draw) <!--I have no idea how this works -->
 
 > ## Arguments
 >
@@ -860,13 +870,13 @@ Draws given components later.
 
 # UiTextUnderline
 
-> ## UiTextUnderline(bool)
+> ### UiTextUnderline(bool)
 
 > ## Arguments
 >
 > bool (bool) - Whether to underline text
 
-> ## Return vlaue
+> ## Return value
 >
 > none
 
@@ -885,5 +895,77 @@ Underlines upcoming text.
     end
 
 ---
+
+<!-- # UiTextToLower
+
+> ### UiTextToLower()
+
+> ## Arguments
+>
+> _ (any)
+
+> ## Return value
+>
+> none?
+
+_desc
+
+    -- No example available :/
+
+--- -->
+
+<!-- # UiTextToUpper
+
+> ### UiTextToUpper()
+
+> ## Arguments
+>
+> _ (any)
+
+> ## Return value
+>
+> none?
+
+_desc
+
+    -- No example available :/
+
+--- -->
+
+<!-- # UiRichTextSplitByWords
+
+> ### words = UiRichTextSplitByWords(text)
+
+> ## Arguments
+>
+> text (string)
+
+> ## Return value
+>
+> words (any)
+
+_desc
+
+    -- No example available :/
+
+--- -->
+
+<!-- # UiTextInputKeyBoardShortCutKey
+
+> ### UiTextInputKeyBoardShortCutKey()
+
+> ## Arguments
+>
+> _ (any)
+
+> ## Return value
+>
+> none?
+
+_desc
+
+    -- No example available :/
+
+--- -->
 
 Also check out [tags list](https://uwq-official.github.io/game-stuff/teardown/tags) :)
