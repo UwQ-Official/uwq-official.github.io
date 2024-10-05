@@ -74,7 +74,7 @@ User Interface functions, that are not officially documented.
 
 <!-- [UiTextToUpper](#uitexttoupper) -->
 
-<!-- [UiRichTextSplitByWords](#uirichtextsplitbywords) -->
+[UiRichTextSplitByWords](#uirichtextsplitbywords)
 
 <!-- [UiTextInputKeyBoardShortCutKey](#uitextinputkeyboardshortcutkey) -->
 
@@ -85,11 +85,11 @@ User Interface functions, that are not officially documented.
  - bool       (true|false) - boolean
  - string     (text) - any text
  - TVec       (table) - table with 3 entries / x;y;z   (axis)
- - TQuat      (table) - table with 4 entries / ?;?;?;? (has pitch and yawn?)
+ - TQuat      (table) - table with 4 entries / ?;?;?;? (has pitch and yaw?)
  - TTransform (table) - {TVec, TQuat}        
  - any        (number|true|false|text|table) - dependant on other input | undefined
  - table      (table) - any table
- - $type, optional - points out that argument is not required for function to work and has a default value when not given ; Show on example as [$out] (square brackets)
+ - $type, optional - points out that argument is not required for function to work and has a default value when not given ; Show on example as [$in] (square brackets)
  -->
 
 # AddSnow
@@ -898,11 +898,14 @@ Underlines upcoming text.
 
 <!-- # UiTextToLower
 
-> ### UiTextToLower()
+**Only works if called by a *privileged script***
+
+> ### upper = UiTextToLower(text)
+
 
 > ## Arguments
 >
-> _ (any)
+> 
 
 > ## Return value
 >
@@ -916,15 +919,17 @@ _desc
 
 <!-- # UiTextToUpper
 
-> ### UiTextToUpper()
+**Only works if called by a *privileged script***
+
+> ### lower = UiTextToUpper(text)
 
 > ## Arguments
 >
-> _ (any)
+> 
 
 > ## Return value
 >
-> none?
+> lower (number)
 
 _desc
 
@@ -932,7 +937,9 @@ _desc
 
 --- -->
 
-<!-- # UiRichTextSplitByWords
+# UiRichTextSplitByWords <!-- Research more abt function and how it works -->
+
+**Only works if called by a *privileged script***
 
 > ### words = UiRichTextSplitByWords(text)
 
@@ -942,27 +949,30 @@ _desc
 
 > ## Return value
 >
-> words (any)
+> words (table) - Words (list of words, separated by a space. Retains punctuation (execpt for commas) and spaces)
 
-_desc
+Turns string into table of words, separated by spaces, rataining all types of punctuation (exept commas).
 
-    -- No example available :/
+    function draw(dt)
+        words = UiRichTextSplitByWords("(Lorem ipsum), {dolor,} sit amet :O")
+        DebugPrint(words)
+    end
 
---- -->
+---
+<!-- Seems not to do anything?????
+# UiTextInputKeyBoardShortCutKey
 
-<!-- # UiTextInputKeyBoardShortCutKey
-
-> ### UiTextInputKeyBoardShortCutKey()
+> ### UiTextInputKeyBoardShortCutKey(shortcut)
 
 > ## Arguments
 >
-> _ (any)
+> shortcut (string)
 
 > ## Return value
 >
-> none?
+> none
 
-_desc
+Binds keyboard shortcut to upcomming [UiTextInput()](#uitextinput) call.
 
     -- No example available :/
 
