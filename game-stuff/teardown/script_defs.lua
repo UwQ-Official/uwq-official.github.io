@@ -1,4 +1,4 @@
--- Version 1.6.0 Experimental #2
+-- Version 1.6.0
 
 ---@meta _
 
