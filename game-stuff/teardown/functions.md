@@ -213,7 +213,7 @@ Gets info about event
 
 # GetEventCount
 
-> ### count = GetEventCound(event)
+> ### count = GetEventCount(event)
 
 > ## Arguments
 >
