@@ -79,6 +79,50 @@ User Interface functions, that are not officially documented.
 <!-- [UiTextInputKeyBoardShortCutKey](#uitextinputkeyboardshortcutkey) -->
 
 ---
+
+## Voxscript
+
+Voxscript functions. <!-- Remove if you find official documentation of them. -->
+
+[Randomize](#randomize)
+
+[RandomFloat](#randomfloat)
+
+[RandomInt](#randomint)
+
+[CreateMaterial](#creatematerial)
+
+[CreateBrush](#createbrush)
+
+[FlipBrush](#flipbrush)
+
+[RotateBrush](#rotatebrush)
+
+[TranslateBrush](#translatebrush)
+
+[GetBrushSize](#getbrushsize)
+
+[Material](#material)
+
+[GetImageSize](#getimagesize)
+
+[GetImagePixel](#getimagepixel)
+
+[Vox](#vox)
+
+[Box](#box)
+
+[Sphere](#sphere)
+
+[Line](#line)
+
+[Set](#set)
+
+[Get](#get)
+
+[Heightmap](#heightmap)
+
+---
 <!-- Types are:
  - handle     (number) - entity id
  - number     (number) - any number value
@@ -977,5 +1021,576 @@ Binds keyboard shortcut to upcomming [UiTextInput()](#uitextinput) call.
     -- No example available :/
 
 --- -->
+<!-- Start of Voxscript section -->
+# Randomize
+
+> ### Randomize(\[seed\])
+
+> ## Arguments
+>
+> seed (number, optional) - Random seed. If omited, system time will be used
+
+> ## Return value
+>
+> none
+
+Randomizes seed.
+
+    -- No example available :/
+
+---
+
+---
+
+# RandomFloat
+
+> ### r = RandomFloat(min, max)
+
+> ## Arguments
+>
+> min (number) - Start of RNG range
+>
+> max (number) - End of RNG range
+
+> ## Return value
+>
+> r (number) - Random floating point number between *min* and *max*
+
+Generates a random floating point number from given range.
+
+    function init()
+        local r = RandomFloat(1.0, 6.0)
+    end
+
+---
+
+# RandomInt
+
+> ### r = RandomInt(lower, upper)
+
+> ## Arguments
+>
+> lower (number) - Start of RNG range
+>
+> upper (number) - End of RNG range
+
+> ## Return value
+>
+> r (number) - Random integer from lower bound to (and includng) upper bound
+
+Generates a random integer from lower bound to (and including) upper bound.
+
+    function init()
+        local r = RandomInt(1, 3) -- Will reter either 1, 2 or 3
+    end
+
+---
+
+# CreateMaterial
+
+> ### mat = CreateMaterial(type, r, g, b, \[a\], \[reflect\], \[shiny\], \[metal\], \[emissive\])
+
+> ## Arguments
+>
+> type (string) - Material; Either glass, wood, masonry, plaster, metal, heavymetal, rock, dirt, foliage, plastic, hardmetal, hardmasonry, ice or unphysical <!-- maybe hole and snow too?? -->
+>
+> r (number) -  Red color value, in range 0.0 to 1.0 
+>
+> g (number) - Green color value, in range 0.0 to 1.0 
+>
+> b (number) - Blue color value, in range 0.0 to 1.0 
+>
+> a (number, optional) - Alpha channel value, in range 0.0 to 1.0 (from image)
+>
+> reflect (number, optional) - Material reflectivity, in range 0.0 to 1.0
+>
+> shiny (number, optional) - Material shininess, in range 0.0 to 1.0
+>
+> metal (number, optional) - Material metalic value, in range 0.0 to 1.0
+>
+> emissive (number, optional) - Material light emission value, in range 0.0 to 32.0
+
+> ## Return value
+>
+> mat (handle) - Material handle *
+
+Creates a material.
+
+    function init()
+    	local brick = CreateMaterial("masonry", 0.6, 0.5, 0.3, 0, 0.1, 0, 0)
+    end
+
+---
+
+# CreateBrush
+
+> ### CreateBrush(path, \[local\])
+
+> ## Arguments
+>
+> path (string) - Path to vox file and optional object
+>
+> local (bool, optional) - Use local coordinates for all operations, false by default
+
+> ## Return value
+>
+> none
+
+Creates a brush.
+
+    function init()
+    	Vox(0,0,0)
+
+    	brickWall = CreateBrush("MOD/brickwall.vox")
+    	Material(brickWall)
+    	Box(0, 0, 0, 10, 10, 10)
+
+    	bulgarianFlag = CreateBrush("MOD/flags.vox:bulgaria")
+    	Material(bulgarianFlag)
+    	Box(0, 0, 0, 20, 15, 1)
+    end
+
+---
+
+# FlipBrush
+
+> ### FlipBrush(brush, axes)
+
+> ## Arguments
+>
+> brush (handle)
+>
+> axes (string) - Etiher *x*, *y* or *z*
+
+> ## Return value
+>
+> none
+
+Flips given brush on specified axes.
+
+    function init()
+    	local brush = CreateBrush("brush/white.vox")
+    	FlipBrush(brush, "x")
+    	Material(brush)
+    	Box(0, 0, 0, 20, 15, 5)
+    end
+
+---
+
+# RotateBrush
+
+> ### RotateBrush(brush, axes, angle)
+
+> ## Arguments
+>
+> brush (handle)
+>
+> axes (string) - Either *x*, *y* or *z*
+>
+> angle (number)
+
+> ## Return value
+>
+> none
+
+Rotates given brush on specified axes and angle.
+
+    function init()
+    	local brush = CreateBrush("brush/white.vox")
+    	local brick = CreateMaterial("masonry", 0.6, 0.5, 0.3, 0, 0.1, 0, 0)
+    	--Draw box with brush rotated 90 degrees around y axis
+    	RotateBrush(brush, "y", 90)
+    	Material(brick)
+    	Vox(0,0,0)
+    	Box(0, 0, 0, 10, 10, 10)
+    end
+
+---
+
+# TranslateBrush
+
+> ### TranslateBrush(brush, x, y, z)
+
+> ## Arguments
+>
+> brush (handle)
+>
+> x (number) - Offset along x axiz
+>
+> y (number) - Offset along y axiz
+>
+> z (number) - Offest along z axiz
+
+> ## Return value
+>
+> none
+
+Apply translation on given brush.
+
+    function init()
+    	local brush = CreateBrush("brush/white.vox")
+    	local brick = CreateMaterial("masonry", 0.6, 0.5, 0.3, 0, 0.1, 0, 0)
+    	Material(brick)
+    	Vox(0,0,0)
+    	Box(0, 0, 0, 10, 10, 10)
+    	TranslateBrush(brush, 5, 0, 0)
+	    Box(0, 0, 0, 10, 10, 10)
+    end
+
+---
+
+# GetBrushSize
+
+> ### x, y, z = GetBrushSize(brush)
+
+> ## Arguments
+>
+> brush (handle)
+
+> ## Return value
+>
+> x (number) - Size along x axis
+>
+> y (number) - Size along y axis
+>
+> z (number) - Size along z axis
+
+Returns brush size in voxels.
+
+    function init()
+    	local brush = CreateBrush("brush/white.vox")
+    	local brick = CreateMaterial("masonry", 0.6, 0.5, 0.3, 0, 0.1, 0, 0)
+    	Material(brick)
+    	Vox(0,0,0)
+    	Box(0, 0, 0, 10, 10, 10)
+
+    	local xs, ys, zs = GetBrushSize(brush)
+    end
+
+---
+
+# Material
+
+> ### Material(material)
+
+> ## Arguments
+>
+> material (handle) - Material handle *
+
+> ## Return value
+>
+> none
+
+Set current material brush. Set *material* to zero to reset.
+
+    function init()
+    	local brush = CreateBrush("brush/white.vox")
+    	local brick = CreateMaterial("masonry", 0.6, 0.5, 0.3, 0, 0.1, 0, 0)
+    	Material(brick)
+    	Vox(0,0,0)
+    	Box(0, 0, 0, 10, 10, 10)
+
+    	--Make box hollow
+    	Material(0)
+    	Box(2, 2, 2, 8, 8, 8)
+    end
+
+---
+
+# LoadImage
+
+> ### LoadImage(path, \[grassMapPath\])
+
+> ## Arguments
+>
+> path (string) - Path to PNG image
+>
+> grassMapPath (string, optional) - Path to grass map PNG image
+
+> ## Return value
+>
+> none
+
+Load heightmap PNG.
+
+    function init()
+        LoadImage("MOD/heightmap.png", "MOD/grassmap.png")
+    end
+
+---
+
+# GetImageSize
+
+> ### w, h = GetImageSize()
+
+> ## Arguments
+>
+> none
+
+> ## Return value
+>
+> w (number) - Image width
+>
+> h (number) - Image height
+
+Returns image size.
+
+    function init()
+    	LoadImage("MOD/image.png")
+    	local w, h = GetImageSize()
+    end
+
+---
+
+# GetImagePixel
+
+> ### r, g, b, a = GetImagePixel(x, y)
+
+> ## Arguments
+>
+> x (number) - Pixel position x coordinate
+>
+> y (number) - Pixel position y coordinate
+
+> ## Return value
+>
+> r (number) - Red value
+>
+> g (number) - Green value
+>
+> b (number) - Blue value
+>
+> a (number) - Alpha channel value
+
+Return color value for image pixel.
+
+    function init()
+    	LoadImage("MOD/image.png")
+    	local r,g,b,a = GetImagePixel(50, 50)
+    end
+
+---
+
+# Vox
+
+> ### Vox(x, y, z, rx, ry, rz)
+
+> ## Arguments
+>
+> x (number) - X position
+>
+> y (number) - Y position
+>
+> z (number) - Z position
+>
+> rx (number) - Rotation around x axis in degrees
+>
+> ry (number) - Rotation around y axis in degrees
+>
+> rz (number) - Rotation around z axis in degrees
+
+> ## Return value
+>
+> none
+
+Create new shape.
+
+    function init()
+    	--Create vox shape
+        Vox(0,0,0)
+
+    	--We can now fill it with content
+        local brush = CreateBrush("brush/white.vox")
+        local brick = CreateMaterial("masonry", 0.6, 0.5, 0.3, 0, 0.1, 0, 0)
+        Material(brick)
+        Box(0, 0, 0, 10, 10, 10)
+    end
+
+---
+
+# Box
+
+> ### Box(x0, y0, z0, x1, y1, z1)
+
+> ## Arguments
+>
+> x0 (number) - Start position on x axis
+>
+> y0 (number) - Start position on y axis
+>
+> z0 (number) - Start position on z axis
+>
+> x1 (number) - End position on x axis
+>
+> y1 (number) - End position on y axis
+>
+> z1 (number) - End position on z axis
+
+> ## Return value
+>
+> none
+
+Draw solid box into current shape using currently selected material.
+
+    function init()
+        Vox(0,0,0)
+        local brush = CreateBrush("brush/white.vox")
+        local brick = CreateMaterial("masonry", 0.6, 0.5, 0.3, 0, 0.1, 0, 0)
+        Material(brick)
+        Box(0, 0, 0, 10, 10, 10)
+    end
+
+---
+
+# Sphere
+
+> ### Sphere(x, y, z, r)
+
+> ## Arguments
+>
+> x (number) - Center position on x axis
+>
+> y (number) - Center position on y axis
+>
+> z (number) - Center position on z axis
+>
+> r (number) - Sphere radius
+
+> ## Return value
+>
+> none
+
+Draw solid sphere into current shape using the currently selected material.
+
+    function init()
+    	Vox(0,0,0)
+    	local brush = CreateBrush("brush/white.vox")
+    	local brick = CreateMaterial("masonry", 0.6, 0.5, 0.3, 0, 0.1, 0, 0)
+    	Material(brick)
+    	Sphere(0, 0, 0, 15)
+    end
+
+---
+
+# Line
+
+> ### Line(x0, y0, z0, x1, y1, z1, thicknessStart, thicknessEnd)
+
+> ## Arguments
+>
+> x0 - Start position on x axis
+>
+> y0 - Start position on y axis
+>
+> z0 - Start position on z axis
+>
+> x1 - End position on x axis
+>
+> y1 - End position on y axis
+>
+> z1 - End position on z axis
+>
+> thicknessStart (number)
+>
+> thicknessEnd (number)
+
+> ## Return value
+>
+> none
+
+Draw a solid line between two points with given thickness.
+
+    function init()
+    	Vox(0,0,0)
+    	local brush = CreateBrush("brush/white.vox")
+    	local brick = CreateMaterial("masonry", 0.6, 0.5, 0.3, 0, 0.1, 0, 0)
+    	Material(brick)
+    	Line(0, 0, 0, 15)
+    end
+
+---
+
+# Set
+
+> ### Set(x, y, z)
+
+> ## Arguments
+>
+> x (number) - X position
+>
+> y (number) - Y position
+>
+> z (number) - Z position
+
+> ## Return value
+>
+> none
+
+Sets a single voxel in specified position.
+
+    function init()
+    	Vox(0,0,0)
+    	local brush = CreateBrush("brush/white.vox")
+    	local brick = CreateMaterial("masonry", 0.6, 0.5, 0.3, 0, 0.1, 0, 0)
+    	Material(brick)
+    	Set(0, 0, 0)
+    end
+
+---
+
+# Get
+
+> ### mat = Get(x, y, z)
+
+> ## Arguments
+>
+> x (number) - X position
+>
+> y (number) - Y position
+>
+> z (number) - Z position
+
+> ## Return value
+>
+> mat (handle) - Material handle *
+
+Returns voxel material's handle at specified position.
+
+    function init()
+    	Vox(0,0,0)
+    	local brush = CreateBrush("brush/white.vox")
+    	local brick = CreateMaterial("masonry", 0.6, 0.5, 0.3, 0, 0.1, 0, 0)
+    	Material(brick)
+    	Set(0, 0, 0)
+    	Material(Get(0, 0, 0))
+    end
+
+---
+
+# Heightmap
+
+> ### Heightmap(x0, y0, x1, y1, \[height\], \[isntHollow\], \[cropBorder\])
+
+> ## Arguments
+>
+> x0 (number) - Start position on x axis
+>
+> y0 (number) - Stat position on y axis
+>
+> x1 (number) - End position on x axis
+>
+> y1 (number) - End position on y axis
+>
+> height (number, optional) - Height scale
+>
+> isntHollow (bool, optional) - Unused, for legacy support
+>
+> cropBorder (bool, optional) - Use special handling of borders in heightmap, reduces amount of voxels and their size
+
+> ## Return value
+>
+> none
+
+---
 
 Also check out [tags list](https://uwq-official.github.io/game-stuff/teardown/tags) :)
