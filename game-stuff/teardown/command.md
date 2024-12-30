@@ -343,4 +343,4 @@ Unlike built-in levels, quicksave bin files aren't compressed, so they take up m
 >
 > ### id (string) - DLC id (data\serviceconfigs\dlc_naming_table.xml)
 >
-> Opens store page of given DLC ; ArtVandals = 0 ; TimeCampers = 2657050 ; Folkrace = 2657060; QuilezRoller = 2657080; DLC3 = appId
+> Opens store page of given DLC ; ArtVandals = 0 ; TimeCampers = [2657050](https://steamdb.info/app/2657050) ; Folkrace = [2657060](https://steamdb.info/app/2657060/); QuilezRoller = [2657080](https://steamdb.info/app/2657080); DLC3 = [2657090](https://steamdb.info/app/2657090/)
