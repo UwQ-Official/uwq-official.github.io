@@ -164,13 +164,13 @@ Adds a snowball with defined size to shape.
 
 # Command
 
-> ### Command(cmd, param)
+> ### Command(cmd, \[param\])
 
 > ## Arguments
 >
-> cmd (string) - Command (check out [1ssnl's Dennispedia](https://x4fx77x4f.github.io/dennispedia/teardown/g/Command.html) for a list of commands (arguments))
+> cmd (string) - Command (check out [1ssnl's Dennispedia](https://web.archive.org/web/20240821184001/https://x4fx77x4f.github.io/dennispedia/teardown/g/Command.html) for a list of commands (arguments) or [the updated list](https://uwq-official.github.io/game-stuff/teardown/command))
 > 
-> param (depends on previous argument) - Parameter for given command (if any)
+> param (any, optional) - Parameter for given command
 
 > ## Return Value
 >
