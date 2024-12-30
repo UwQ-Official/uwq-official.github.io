@@ -318,7 +318,7 @@ Unlike built-in levels, quicksave bin files aren't compressed, so they take up m
 >
 > ### id (string) - Mod id with steam- preffix
 >
-> Subscribes from mod.
+> Subscribes to mod.
 
 > ## options.audio.resettodefault
 >
