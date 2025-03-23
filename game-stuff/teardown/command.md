@@ -92,6 +92,8 @@
 
 [mods.subscribe](#modssubscribe)
 
+[mods.makeavatarcopy](#mods.makeavatarcopy)
+
 ## Options
 
 [options.audio.resettodefault](#optionsaudioresettodefault)
@@ -246,7 +248,7 @@ Unlike built-in levels, quicksave bin files aren't compressed, so they take up m
 >
 > ### id (string)
 >
-> Opens MOD/main.xml (opens empty editor if file doesn't exist).
+> Opens MOD/main.xml (does nothing if mod doesn't contain main.xml).
 
 > ## mods.makelocalcopy
 >
@@ -320,6 +322,9 @@ Unlike built-in levels, quicksave bin files aren't compressed, so they take up m
 >
 > Subscribes to mod.
 
+> ## mods.makeavatarcopy
+<!-- How does it work??? -->
+
 > ## options.audio.resettodefault
 >
 > Resets audio settings to default.
@@ -338,6 +343,15 @@ Unlike built-in levels, quicksave bin files aren't compressed, so they take up m
 > ## options.input.keymap.resettodefault
 >
 > Resets keyboard key binds to default.
+
+> ## options.input.gamepad.stick.right.preset
+<!-- ??? -->
+
+> ## options.input.gamepad.stick.left.inner_deadzone
+<!-- ??? -->
+
+> ## ptions.input.gamepad.stick.right.inner_deadzone
+<!-- ??? -->
 
 > ## dlc.openstore
 >

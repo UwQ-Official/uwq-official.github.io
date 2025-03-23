@@ -1,5 +1,7 @@
 # Undocumented Functions
 
+A *privileged script* is a script that's located in the **data** folder.
+
 ## Miscellaneous
 
 Miscellaneous functions with no official documentation.
@@ -12,9 +14,9 @@ Miscellaneous functions with no official documentation.
 
 [GetClipboardText](#getclipboard)
 
-[GetEvent](#getevent)
+<!-- [GetEvent](#getevent)
 
-[GetEventCount](#geteventcount)
+[GetEventCount](#geteventcount) -->
 
 [DisableAllLights](#disablealllights)
 
@@ -50,9 +52,9 @@ Miscellaneous functions with no official documentation.
 
 [RadiolinkDrawLinesCPP](#radiolinkdrawlinescpp)
 
-[GetFlashlight](#getflashlight)
+<!-- [GetFlashlight](#getflashlight) -->
 
-[SetFlashlight](#setflashlight)
+<!-- [SetFlashlight](#setflashlight) -->
 
 [HasInputController](#hasinputcontroller)
 
@@ -77,6 +79,8 @@ User Interface functions, that are not officially documented.
 [UiRichTextSplitByWords](#uirichtextsplitbywords)
 
 <!-- [UiTextInputKeyBoardShortCutKey](#uitextinputkeyboardshortcutkey) -->
+
+[UiGetRelativePos](#uigetrelativepos)
 
 ---
 
@@ -129,7 +133,7 @@ Voxscript functions. <!-- Remove if you find official documentation of them. -->
  - bool       (true|false) - boolean
  - string     (text) - any text
  - TVec       (table) - table with 3 entries / x;y;z   (axis)
- - TQuat      (table) - table with 4 entries / ?;?;?;? (has pitch and yaw?)
+ - TQuat      (table) - table with 4 entries / x;y;z;w -Quaternion
  - TTransform (table) - {TVec, TQuat}        
  - any        (number|true|false|text|table) - dependant on other input | undefined
  - table      (table) - any table
@@ -144,20 +148,21 @@ Voxscript functions. <!-- Remove if you find official documentation of them. -->
 >
 > shape (handle) - Shape handle
 > 
-> point (vec) - Vector Point on shape
+> point (TVec) - Vector Point on shape
 > 
 > amount (number) - Amount of snow
 
 > ## Return value
 >
-> none
+> r (bool) - false
 
-Adds a snowball with defined size to shape.
+Adds snow particle on specified location.
 
-    function init()
-        shape = FindShape("shape", true)
-
-        AddSnow(shape, Vec(.5, 0, 0), 0.25)
+    function update()
+        local body = FindBody("body")
+        local pos = GetBodyTransform(body).pos
+        local hit, point, normal, shape = QueryClosestPoint(pos, 0.3)
+        AddSnow(shape, point, 0.22)
     end
 
 ---
@@ -229,7 +234,7 @@ Gets device clipboard latest entry.
 
 ---
 
-# GetEvent
+<!-- # GetEvent
 
 > ### a, b, c, d = GetEvent()
 
@@ -253,9 +258,9 @@ Gets info about event
         end
     end
 
----
+--- -->
 
-# GetEventCount
+<!-- # GetEventCount
 
 > ### count = GetEventCount(event)
 
@@ -277,7 +282,7 @@ Gets the amount of events that already happened
         end
     end
 
----
+--- -->
 
 # DisableAllLights
 
@@ -664,6 +669,8 @@ Triggers an event with given parameter
 
 # RadiolinkCheckConnectionCPP
 
+**Only works if called by a *privileged script***
+
 > ### connection, dir, length = RadiolinkCheckConnectionCPP(rPos, tPos, rShape, tShape)
 
 > ## Arguments
@@ -691,6 +698,8 @@ Checks if connection can be made between two points (*r* and *t*).
 ---
 
 # RadiolinkDrawLinesCPP
+
+**Only works if called by a *privileged script***
 
 > ### RadiolinkDrawLinesCPP(radius, length, dir, tPos, rPos, timer, r, g, b, a)
 
@@ -726,7 +735,7 @@ Draws a line between two points (*t* and *r*) with given radius and color.
 
 ---
 
-# GetFlashlight
+<!-- # GetFlashlight
 
 > ### flash = GetFlashlight()
 
@@ -776,9 +785,7 @@ Sets given light as player flashlight (doesn't work with all lights).
         new = FindLight("newflash", true)
         SetFlashlight(new)
         DebugWatch("new", new)
-    end
-
----
+    end -->
 
 # HasInputController
 
@@ -837,7 +844,7 @@ Saves the camera override transform after exiting override mode.
 >
 > layers (string, optional) - Level layers
 >
-> qs (string, optional) - Quicksave
+> qs (string, optional) - Quicksave name
 
 > ## Return value
 >
@@ -1021,7 +1028,14 @@ Binds keyboard shortcut to upcomming [UiTextInput()](#uitextinput) call.
     -- No example available :/
 
 --- -->
-<!-- Start of Voxscript section -->
+
+<!-- Start of Voxscript section 
+
+
+SEPARATOR
+
+
+-->
 # Randomize
 
 > ### Randomize(\[seed\])
@@ -1037,8 +1051,6 @@ Binds keyboard shortcut to upcomming [UiTextInput()](#uitextinput) call.
 Randomizes seed.
 
     -- No example available :/
-
----
 
 ---
 

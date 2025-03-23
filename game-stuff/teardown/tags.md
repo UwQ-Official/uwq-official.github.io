@@ -2,6 +2,8 @@
 
 **Keep in mind, that this page contains only engine tags!**
 
+(sorted by alphabetical order (mostly))
+
 [autobreak](#autobreak)
 
 [boat](#boat)
@@ -59,6 +61,8 @@
 [noidlecursor](#noidlecursor)
 
 [nonav](#nonav)
+
+[noshadow](#noshadow)
 
 [nosnow](#nosnow)
 
@@ -270,13 +274,19 @@
 >
 > Shape is disreguarded by pathfinding.
 
+> ## noshadow
+>
+> shape
+>
+> Shape is excluded from shadow volume (it doesn't have a shadow).
+
 > ## nosnow
 >
 > shape
 >
-> Tagged shape doesn't spawn with a layer of snow on it (when *snow* enviroment property is enabled).
+> Tagged shape doesn't spawn with a layer of snow on top of it (when *snow* enviroment property is enabled).
 
-> ## passive (broken?)
+> ## passive <!-- broken? -->
 >
 > vehicle
 >

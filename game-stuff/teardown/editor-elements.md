@@ -3,25 +3,25 @@
 [animator](#animator)
 [body](#body)
 [boundary](#boundary)
-[comment](#comment)
-[compound](#compound)
-[environment](#environment)
-[group](#group)
-[instance](#instance)
+[comment](#comment)     <!-- editor -->
+[compound](#compound)   <!-- shape -->
+[environment](#environment) <!-- resolved -->
+[group](#group)     <!-- editor -->
+[instance](#instance) <!-- resolved -->
 [joint](#joint)
 [light](#light)
 [location](#location)
-[postprocessing](#postprocessing)
+[postprocessing](#postprocessing) <!-- resolved -->
 [rope](#rope)
 [screen](#screen)
 [script](#script)
-[spawnpoint](#spawnpoint)
+[spawnpoint](#spawnpoint) <!-- resolved -->
 [trigger](#trigger)
 [vehicle](#vehicle)
-[vox](#vox)
+[vox](#vox)             <!-- shapes -->
 [voxbox](#voxbox)
 [voxagon](#voxagon)
-[voxscript](#voxscript)
+[voxscript](#voxscript) <!-- -->
 [water](#water)
 [wheel](#wheel)
 
