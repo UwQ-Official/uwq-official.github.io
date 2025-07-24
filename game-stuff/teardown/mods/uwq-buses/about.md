@@ -36,7 +36,7 @@ Unsupported:
 Trolleybuses' LED displays ([mostly](#useless-info)) consist of [bustec](https://bustec.eu/en/) ones, unlike the [Mobitec (Luminator)](https://www.luminator.com/en-uk/products/on-board-destination-displays.html) ones (of buses) using 128/96/32 x 16 px, bustec uses 144/108/36 x 19 px. display. To match as closely as possible to the IRL ones, the trolleybuses use these resolutions, meaning, that a trolley sign won't fit on a bus and vice-versa.
 
 ### Useless info
-Trolleybuses Skoda 26Tr Solaris II (the non-articulated ones, probably the yellow Ikarus-es too) use [BUSE](https://www.buse.cz/en) displays,k not bustec.
+Trolleybuses Skoda 26Tr Solaris II (the non-articulated ones, probably the yellow Ikarus-es too) use [BUSE](https://www.buse.cz/en) displays, not bustec.
 
 Some buses (depending on the brand/bus itself) also use bustec displays, but it would be a pain in the ass to make them too. That's why (for now) only trolleybuses are different (incomaptible with others).
 
