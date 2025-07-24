@@ -13,7 +13,7 @@ The letters are:
 
 If you hold down the **Page Down** key, you will see a new input field. In it you need to enter additional destination / text ID (for now you'l have to find them manually, [more-info](#additional)).
 
-Ones that start with "**s_**" will display text only on the front display while the others will only display the line number.
+<!-- Ones that start with "**s_**" will display text only on the front display while the others will only display the line number. -->
 
 <iframe src="https://drive.google.com/file/d/1jkxPLIEW_YRySjPAC7d0Y7V2lbm7i9Xc/preview" width="640" height="480"></iframe>
 
