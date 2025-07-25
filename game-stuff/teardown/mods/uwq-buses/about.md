@@ -26,12 +26,10 @@ Due to recent changes from the Sofia IBIS team, most temporary lines (with an **
 Buses with destination and stops displays are automatic and support *most* lines. They show the time since the level has started and the line number. For unsupported lines only the time will be shown and the line number field will be empty.
 
 Supported:
-
-<img scr="https://uwq-official.github.io/game-stuff/teardown/mods/uwq-buses/sup.png" height="200" width="300">
+![](sup.png)
 
 Unsupported:
-
-<img scr="https://uwq-official.github.io/game-stuff/teardown/mods/uwq-buses/uns.png" height="200" width="300">
+![](uns.png)
 
 ## More info
 ### Trolleybus display resolution
