@@ -11,7 +11,7 @@ The letters are:
 - **e** - Tram lin<ins>e</ins>s
 - There are also ones that don't follow that pattern and are either words or abbreviations (like *bus*, *test*, *school*, *ter* /<ins>ter</ins>oll/, *bt* /<ins>b</ins>lue<ins>t</ins>ide/, etc.)
 
-If you hold down the **Page Down** key, you will see a new input field. In it you need to enter additional destination / text ID (for now you'l have to find them manually, [more-info](#additional)).
+If you hold down the **Page Down** key, you will see a new input field. In it you need to enter additional destination / text ID (for now you'l have to find them manually, [more info](#additional)).
 
 <!-- Ones that start with "**s_**" will display text only on the front display while the others will only display the line number. -->
 
@@ -26,23 +26,22 @@ Due to recent changes from the Sofia IBIS team, most temporary lines (with an **
 Buses with destination and stops displays are automatic and support *most* lines. They show the time since the level has started and the line number. For unsupported lines only the time will be shown and the line number field will be empty.
 
 Supported:
-![](sup.png)
+<img scr="https://uwq-official.github.io/game-stuff/teardown/mods/uwq-buses/sup.png" width="400">
 
 Unsupported:
-![](uns.png)
+<img scr="https://uwq-official.github.io/game-stuff/teardown/mods/uwq-buses/uns.png" width="400">
 
 ## More info
 ### Trolleybus display resolution
 Trolleybuses' LED displays ([mostly](#useless-info)) consist of [bustec](https://bustec.eu/en/) ones, unlike the [Mobitec (Luminator)](https://www.luminator.com/en-uk/products/on-board-destination-displays.html) ones (of buses) using 128/96/32 x 16 px, bustec uses 144/108/36 x 19 px. display. To match as closely as possible to the IRL ones, the trolleybuses use these resolutions, meaning, that a trolley sign won't fit on a bus and vice-versa.
 
 ### Useless info
-Trolleybuses Skoda 26Tr Solaris II (the non-articulated ones, probably the yellow Ikarus-es too) use [BUSE](https://www.buse.cz/en) displays, not bustec.
+Trolleybuses Škoda 26Tr Solaris III (the non-articulated ones, probably the yellow Ikarus-es too) use [BUSE](https://www.buse.cz/en) displays, not bustec.
 
 Some buses (depending on the brand/bus itself) also use bustec displays, but it would be a pain in the ass to make them too. That's why (for now) only trolleybuses are different (incomaptible with others).
 
 #### Additional
 Additional codes work the same way as ordinary ones. Letter + number.
-
 E.g. **b7**, **t10**, etc.
 
 For now they're not shown on the bottom of the preview because of some software limitations (my python script doesn't like them 🙃).
