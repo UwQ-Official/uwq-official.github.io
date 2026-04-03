@@ -1,0 +1,55 @@
+body {
+	text-align: center;
+	background-color: black;
+	font-family: "Sofia Sans", sans-serif;
+}
+
+.bdy {
+	background-color: rgb(255, 255, 255);
+	border-radius: 50px 50px 0 0;
+	padding: 5px;
+}
+
+p {
+	font-weight: bold;
+}
+
+.entry {
+	border: 6px solid black;
+	border-radius: 10px;
+	padding: 10px;
+	margin: 20px;
+	background-color: rgb(214, 214, 214);
+}
+
+.fleet {
+	font-size: 40px;
+	margin: -5px;
+}
+
+.desc {
+	font-size: 20px;
+	margin: 5px;
+}
+
+.photo {
+	border: 2px solid black;
+	border-radius: 20px;
+	margin: 5px;
+}
+
+.affects {
+	border: 3px solid black;
+	border-radius: 10px;
+	padding: 5px;
+	margin: 10px;
+	background-color: rgb(214, 214, 214);
+}
+
+.affected {
+	inline-size: 40%;
+}
+
+.aff-txt {
+	margin: 2px;
+}
