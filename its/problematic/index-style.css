@@ -53,3 +53,27 @@ p {
 .aff-txt {
 	margin: 2px;
 }
+
+.entry-done {
+	border: 6px solid black;
+	border-radius: 10px;
+	padding: 10px;
+	margin: 20px;
+	background-color: rgb(218, 255, 175);
+}
+
+.entry-rej {
+	border: 6px solid black;
+	border-radius: 10px;
+	padding: 10px;
+	margin: 20px;
+	background-color: rgb(255, 175, 175);
+}
+
+.entry-unk {
+	border: 6px solid black;
+	border-radius: 10px;
+	padding: 10px;
+	margin: 20px;
+	background-color: rgb(250, 255, 175);
+}
