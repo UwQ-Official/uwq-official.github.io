@@ -77,3 +77,32 @@ p {
 	margin: 20px;
 	background-color: rgb(250, 255, 175);
 }
+
+details {
+  user-select: none;
+  border: 6px solid black;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 20px;
+  background-color: rgb(173, 173, 173);
+}
+
+details>summary span.icon {
+  width: 24px;
+  height: 24px;
+  transition: all 0.3s;
+  margin-left: auto;
+}
+
+details[open] summary span.icon {
+  transform: rotate(180deg);
+}
+
+summary {
+  /* display: flex; */
+  cursor: pointer;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
