@@ -106,3 +106,7 @@ summary {
 summary::-webkit-details-marker {
   display: none;
 }
+
+.embed {
+	padding: 20px;
+}
