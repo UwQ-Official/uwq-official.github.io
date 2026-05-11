@@ -109,4 +109,5 @@ summary::-webkit-details-marker {
 
 .embed {
 	padding: 20px;
+	inline-size: 40%;
 }
